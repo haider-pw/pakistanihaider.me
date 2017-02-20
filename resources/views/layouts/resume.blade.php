@@ -11,8 +11,8 @@
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <!--CSS-->
-    <link rel="stylesheet" type="text/css" href="{{ mix('/css/all.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ mix('/css/style.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ mix('/assets/css/all.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ mix('/assets/css/style.css') }}" />
 
 </head>
 
@@ -205,21 +205,21 @@
 <!--/Main Wrapper-->
 
 <!-- Scripts -->
-<script src="js/jquery-1.12.4.min.js"></script>
-<script src="js/angular.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery-ui.min.js"></script>
-<script src="js/material.min.js"></script>
-<script src="js/jQuery.appear.js"></script>
-<script src="js/app.js"></script>
-<script src="js/controllers.js"></script>
-<script src="js/smooth-scroll.js"></script>
-<script src="js/isotope.js"></script>
-<script src="js/lightgallery-all.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/froogaloop2.min.js"></script>
-<script src="js/jquery.slimscroll.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxXt2P7-U38bK0xEFIT-ebZJ1ngK8wjww"></script>
-<script src="js/init.js"></script>
+<script src="assets/js/jquery-1.12.4.min.js"></script>
+<script src="assets/js/angular.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/jquery-ui.min.js"></script>
+<script src="assets/js/material.min.js"></script>
+<script src="assets/js/jQuery.appear.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/controllers.js"></script>
+<script src="assets/js/smooth-scroll.js"></script>
+<script src="assets/js/isotope.js"></script>
+<script src="assets/js/lightgallery-all.js"></script>
+<script src="assets/js/owl.carousel.min.js"></script>
+<script src="assets/js/froogaloop2.min.js"></script>
+<script src="assets/js/jquery.slimscroll.js"></script>
+<script src="assets/https://maps.googleapis.com/maps/api/js?key=AIzaSyBxXt2P7-U38bK0xEFIT-ebZJ1ngK8wjww"></script>
+<script src="assets/js/init.js"></script>
 </body>
 </html>

@@ -21,11 +21,20 @@ mix.combine([
         'resources/assets/css/owl.carousel.css',
         'resources/assets/css/lightgallery.css',
         'resources/assets/css/default-skin/default-skin.css'
-    ], 'public/css/all.css')
-   .sass('resources/assets/sass/style.scss', 'public/css');
+    ], 'public/assets/css/all.css')
+   .sass('resources/assets/sass/style.scss', 'public/assets/css');
 
 //copy javascript files to public
-mix.copy('resources/assets/js/', 'public/js/');
+mix.copy('resources/assets/js/', 'public/assets/js/');
 
 //copy img directory files to public img directory - this might be temporarily needed.
-mix.copy('resources/assets/img/', 'public/img/');
+mix.copy('resources/assets/img/', 'public/assets/img/');
+
+
+//Admin Section Imports
+mix.copy('resources/assets/admin/css/', 'public/assets/admin/css/');
+mix.copy('resources/assets/admin/img/', 'public/assets/admin/img/');
+mix.copy('resources/assets/admin/js/', 'public/assets/admin/js/');
+mix.copy('resources/assets/admin/plugins/', 'public/assets/admin/plugins/',false);
+//copy bootstrap files
+mix.copy('resources/assets/admin/bootstrap', 'public/assets/admin/bootstrap',false);
