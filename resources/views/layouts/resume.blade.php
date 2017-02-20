@@ -11,7 +11,8 @@
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <!--CSS-->
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="{{ mix('/css/all.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ mix('/css/style.css') }}" />
 
 </head>
 

@@ -27,15 +27,25 @@ Project:	Matresume
 /****************************/
 /** Imports **/
 /****************************/
+
+// Fonts
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
 @import url(https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700);
-@import "../css/material.min.css";
+
+// Variables
+@import "variables";
+
+//Stylesheets
+/*@import "../css/material.min.css";
 @import "../css/material-icons.css";
 @import "../css/material-design-iconic-font.min.css";
-@import "../css/bootstrap.min.css";
-@import "../css/jquery-ui.min.css";
-@import "../css/owl.carousel.css";
-@import "../css/lightgallery.css";
-@import "../css/default-skin/default-skin.css";
+//@import "../css/bootstrap.min.css";
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+//@import "node_modules/jquery-ui/themes/base/all.css";
+//@import "../css/jquery-ui.min.css";
+//@import "../css/owl.carousel.css";
+//@import "../css/lightgallery.css";
+@import "../css/default-skin/default-skin.css";*/
 
 $color_1: #444;
 $color_2: #848484;
