@@ -32,9 +32,9 @@ mix.copy('resources/assets/img/', 'public/assets/img/');
 
 
 //Admin Section Imports
-mix.copy('resources/assets/admin/css/', 'public/assets/admin/css/');
-mix.copy('resources/assets/admin/img/', 'public/assets/admin/img/');
-mix.copy('resources/assets/admin/js/', 'public/assets/admin/js/');
-mix.copy('resources/assets/admin/plugins/', 'public/assets/admin/plugins/',false);
+mix.copy('resources/assets/admin/css/', 'public/assets/admin/css/',false)
+.copy('resources/assets/admin/img/', 'public/assets/admin/img/',false)
+.copy('resources/assets/admin/js/', 'public/assets/admin/js/',false)
+.copy('resources/assets/admin/plugins/', 'public/assets/admin/plugins/',false);
 //copy bootstrap files
 mix.copy('resources/assets/admin/bootstrap', 'public/assets/admin/bootstrap',false);
