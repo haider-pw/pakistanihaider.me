@@ -21,7 +21,7 @@ mix.combine([
         'resources/assets/css/owl.carousel.css',
         'resources/assets/css/lightgallery.css',
         'resources/assets/css/default-skin/default-skin.css'
-    ], 'public/assets/css/all.css');
+    ], 'public/assets/css/all.css')
    .sass('resources/assets/sass/style.scss', 'public/assets/css');
 
 //copy javascript files to public
