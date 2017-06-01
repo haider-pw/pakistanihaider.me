@@ -11,7 +11,7 @@ const { mix } = require('laravel-mix');
  |
  */
 
-
+mix.options({ processCssUrls: false });
 mix.combine([
         'resources/assets/css/material.min.css',
         'resources/assets/css/material-icons.css',
