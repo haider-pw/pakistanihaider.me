@@ -4,7 +4,6 @@
 
 @section('content')
     <div class="container">
-
         <!--About Sec-->
         <section class="about-sec mt-180 mt-sm-120  mb-30">
             <div class="row">
