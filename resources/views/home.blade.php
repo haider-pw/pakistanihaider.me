@@ -58,8 +58,8 @@
                             </div>
                             <div class="col-md-7 col-xs-12">
                                 <div class="info-wrap">
-                                    <h1>benjamin sirge</h1>
-                                    <h5 class="mt-20 font-grey">UI/UX Designer & Front End Developer</h5>
+                                    <h1>Syed Haider Hassan</h1>
+                                    <h5 class="mt-20 font-grey">Full Stack Developer</h5>
                                     <div class="mt-30">
                                         <a id="download_cv" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect  bg-green font-white mr-10" href="#">download cv</a>
                                         <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect bg-blue font-white" href="#contact_sec" data-scroll>contact</a>
@@ -68,24 +68,24 @@
                                 <ul class="profile-wrap mt-50">
                                     <li>
                                         <div class="profile-title">age</div>
-                                        <div class="profile-desc">24</div>
+                                        <div class="profile-desc">26</div>
                                     </li>
                                     <li>
                                         <div class="profile-title">address</div>
                                         <div class="profile-desc">
-                                            Glenlake St. Mays Landing, NJ 08330
+                                            Islamabad, Pakistan
                                         </div>
                                     </li>
                                     <li>
                                         <div class="profile-title">email</div>
                                         <div class="profile-desc">
-                                            benjaminsirje49@matresume.com
+                                            haideritx@gmail.com
                                         </div>
                                     </li>
                                     <li>
                                         <div class="profile-title">phone</div>
                                         <div class="profile-desc">
-                                            +1 234 56 78 90
+                                            +92 334 8123456
                                         </div>
                                     </li>
                                     <li>
