@@ -29,6 +29,8 @@ mix.copy('resources/assets/js/', 'public/assets/js/');
 
 //copy img directory files to public img directory - this might be temporarily needed.
 mix.copy('resources/assets/img/', 'public/assets/img/');
+//fonts imports
+mix.copy('resources/assets/fonts/', 'public/assets/fonts/');
 
 
 //Admin Section Imports

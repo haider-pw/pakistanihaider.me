@@ -219,7 +219,7 @@
 <script src="assets/js/owl.carousel.min.js"></script>
 <script src="assets/js/froogaloop2.min.js"></script>
 <script src="assets/js/jquery.slimscroll.js"></script>
-<script src="assets/https://maps.googleapis.com/maps/api/js?key=AIzaSyBxXt2P7-U38bK0xEFIT-ebZJ1ngK8wjww"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxXt2P7-U38bK0xEFIT-ebZJ1ngK8wjww"></script>
 <script src="assets/js/init.js"></script>
 </body>
 </html>

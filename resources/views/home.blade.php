@@ -244,7 +244,7 @@
                     <ul id="portfolio" class="portf auto-construct  project-gallery" data-col="3">
                         <li  class="item mdl-card mdl-shadow--2dp pa-0 branding">
                             <div class="light-img-wrap mdl-card__title pa-0">
-                                <img class="img-responsive" src="img/gallery1.jpg"  alt="Image description" />
+                                <img class="img-responsive" src="assets/img/gallery1.jpg"  alt="Image description" />
                                 <div class="light-img-overlay"></div>
                                 <span class="img-cap">good morning</span>
                             </div>
@@ -255,7 +255,7 @@
                         </li>
                         <li class="item mdl-card mdl-shadow--2dp pa-0  photography">
                             <div class="light-img-wrap mdl-card__title pa-0">
-                                <img class="img-responsive" src="img/gallery2.jpg"  alt="Image description" />
+                                <img class="img-responsive" src="assets/img/gallery2.jpg"  alt="Image description" />
                                 <div class="light-img-overlay"></div>
                                 <span class="img-cap">Grand Canyon</span>
                             </div>
@@ -266,7 +266,7 @@
                         </li>
                         <li class="item mdl-card mdl-shadow--2dp pa-0 design">
                             <div class="light-img-wrap mdl-card__title pa-0">
-                                <img class="img-responsive" src="img/gallery3.jpg"  alt="Image description" />
+                                <img class="img-responsive" src="assets/img/gallery3.jpg"  alt="Image description" />
                                 <div class="light-img-overlay"></div>
                                 <span class="img-cap">iceland</span>
                             </div>
@@ -277,7 +277,7 @@
                         </li>
                         <li class="item mdl-card mdl-shadow--2dp pa-0 web">
                             <div class="light-img-wrap mdl-card__title pa-0">
-                                <img class="img-responsive" src="img/gallery4.jpg"  alt="Image description" />
+                                <img class="img-responsive" src="assets/img/gallery4.jpg"  alt="Image description" />
                                 <div class="light-img-overlay"></div>
                                 <span class="img-cap">serenity</span>
                             </div>
@@ -289,7 +289,7 @@
 
                         <li class="item mdl-card mdl-shadow--2dp pa-0 design">
                             <div class="light-img-wrap mdl-card__title pa-0">
-                                <img class="img-responsive" src="img/gallery5.jpg"  alt="Image description" />
+                                <img class="img-responsive" src="assets/img/gallery5.jpg"  alt="Image description" />
                                 <div class="light-img-overlay"></div>
                                 <span class="img-cap">world seize day</span>
                             </div>
@@ -300,7 +300,7 @@
                         </li>
                         <li class="item mdl-card mdl-shadow--2dp pa-0 branding">
                             <div class="light-img-wrap mdl-card__title pa-0">
-                                <img class="img-responsive" src="img/gallery6.jpg"  alt="Image description" />
+                                <img class="img-responsive" src="assets/img/gallery6.jpg"  alt="Image description" />
                                 <div class="light-img-overlay"></div>
                                 <span class="img-cap">green bugs</span>
                             </div>
@@ -620,12 +620,12 @@
             <div class="row">
                 <div class="col-sm-12 mb-30">
                     <div class="client-carousel">
-                        <img src="img/client1.png" alt="client">
-                        <img src="img/client2.png" alt="client">
-                        <img src="img/client3.png" alt="client">
-                        <img src="img/client4.png" alt="client">
-                        <img src="img/client5.png" alt="client">
-                        <img src="img/client6.png" alt="client">
+                        <img src="assets/img/client1.png" alt="client">
+                        <img src="assets/img/client2.png" alt="client">
+                        <img src="assets/img/client3.png" alt="client">
+                        <img src="assets/img/client4.png" alt="client">
+                        <img src="assets/img/client5.png" alt="client">
+                        <img src="assets/img/client6.png" alt="client">
                     </div>
                 </div>
             </div>
