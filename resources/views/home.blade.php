@@ -111,17 +111,17 @@
                     <h2 class="mb-30">technical skills</h2>
                     <div class="mdl-card mdl-shadow--2dp">
                         <div class="mb-30">
-                            <span class="progress-cat">Photoshop CS</span>
+                            <span class="progress-cat">PHP Development</span>
                             <div class="progress-bar-graph">
                                 <div class="progress-bar-wrap">
-                                    <div class="bar-wrap blue-bar">
-                                        <span data-width="60"></span>
+                                    <div class="bar-wrap green-bar">
+                                        <span data-width="94"></span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="mb-30">
-                            <span class="progress-cat">Illustrator CS</span>
+                            <span class="progress-cat">RDBMS</span>
                             <div class="progress-bar-graph">
                                 <div class="progress-bar-wrap">
                                     <div class="bar-wrap green-bar">
@@ -131,11 +131,41 @@
                             </div>
                         </div>
                         <div class="mb-30">
-                            <span class="progress-cat">Sketch</span>
+                            <span class="progress-cat">OOP</span>
+                            <div class="progress-bar-graph">
+                                <div class="progress-bar-wrap">
+                                    <div class="bar-wrap green-bar">
+                                        <span data-width="94"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-30">
+                            <span class="progress-cat">MVC</span>
+                            <div class="progress-bar-graph">
+                                <div class="progress-bar-wrap">
+                                    <div class="bar-wrap green-bar">
+                                        <span data-width="94"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-30">
+                            <span class="progress-cat">Javascript</span>
                             <div class="progress-bar-graph">
                                 <div class="progress-bar-wrap">
                                     <div class="bar-wrap yellow-bar">
-                                        <span data-width="50"></span>
+                                        <span data-width="70"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-30">
+                            <span class="progress-cat">Version Control (git/svn)</span>
+                            <div class="progress-bar-graph">
+                                <div class="progress-bar-wrap">
+                                    <div class="bar-wrap blue-bar">
+                                        <span data-width="75"></span>
                                     </div>
                                 </div>
                             </div>
@@ -189,22 +219,22 @@
                     <div class="mdl-card mdl-shadow--2dp">
                         <i class="zmdi zmdi-format-color-fill font-blue profile-icon"></i>
                         <h4 class="mb-15">user interface</h4>
-                        <p>A mobile first responsive template with material design.</p>
+                        <p>Select/Design/Deploy the User Interface that is easier to use.</p>
 
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6 col-xs-12 mb-30">
                     <div class="mdl-card mdl-shadow--2dp">
-                        <i class="zmdi zmdi-format-color-text font-green profile-icon"></i>
-                        <h4 class="mb-15">branding</h4>
-                        <p>Comes with light and dark options. Suitable for the universe.</p>
+                        <i class="zmdi zmdi-code-setting font-black profile-icon"></i>
+                        <h4 class="mb-15">coding</h4>
+                        <p>Do the backend coding so you can have all the fun on the front.</p>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6 col-xs-12 mb-30">
                     <div class="mdl-card mdl-shadow--2dp">
-                        <i class="zmdi zmdi-comments font-yellow profile-icon"></i>
-                        <h4 class="mb-15">communication</h4>
-                        <p>Extra ordinary setting pannel with lots of awesome features.</p>
+                        <i class="zmdi zmdi-bug font-red profile-icon"></i>
+                        <h4 class="mb-15">Testing/Integrations</h4>
+                        <p>Don't you worry, i will kill bugs with my tests that are causing errors.</p>
 
                     </div>
                 </div>
@@ -372,50 +402,63 @@
             <h2 class="mb-30">experience</h2>
             <div class="timeline-wrap  overflow-hide mb-30">
                 <ul class="timeline">
+                    <li class="timeline-inverted">
+                        <div class="timeline-badge">
+                            <i class="zmdi zmdi-n-4-square font-red"></i>
+                        </div>
+                        <div class="timeline-panel mdl-card mdl-shadow--2dp  pt-30 pb-30 border-top-red">
+                            <div class="timeline-heading">
+                                <h4 class="mb-10">Sr. PHP Developer</h4>
+                                <span class="duration mb-5">Jan 2013 — Sep 2014</span>
+                                <span class="institution">Creativetech Solutions</span>
+                            </div>
+                            <div class="timeline-body">
+                                <p class="mt-25">Currently working as a Senior PHP Develop, where i have responsibilities to work in different php frameworks.</p>
+                            </div>
+                        </div>
+                    </li>
                     <li>
                         <div class="timeline-badge">
-                            <i class="zmdi zmdi-case font-blue"></i>
+                            <i class="zmdi zmdi-n-3-square font-blue"></i>
                         </div>
                         <div class="timeline-panel mdl-card mdl-shadow--2dp pt-30 pb-30 border-top-blue">
                             <div class="timeline-heading">
-                                <h4 class="mb-10">UI/UX Designer</h4>
-                                <span class="duration mb-5">Mar 2014 - present</span>
-                                <span class="institution">Fakebook</span>
+                                <h4 class="mb-10">Sr. PHP Developer</h4>
+                                <span class="duration mb-5">Dec 2014 - April 2016</span>
+                                <span class="institution">Parexons</span>
                             </div>
                             <div class="timeline-body">
-                                <p class="mt-25">Invitamus me testatur sed quod non dum animae tuae lacrimis ut libertatem deum rogus aegritudinis causet. Dicens hoc contra serpentibus isto.</p>
+                                <p class="mt-25">Did work as a Senior PHP Developer,  where i had responsibilities to work on different php frameworks (Codeigniter/Laravel/Custom etc..)</p>
                             </div>
                         </div>
                     </li>
-
                     <li class="timeline-inverted">
                         <div class="timeline-badge">
-                            <i class="zmdi zmdi-format-color-text font-green"></i>
+                            <i class="zmdi zmdi-n-2-square font-green"></i>
                         </div>
                         <div class="timeline-panel mdl-card mdl-shadow--2dp  pt-30 pb-30 border-top-green">
                             <div class="timeline-heading">
-                                <h4 class="mb-10">Art Director</h4>
-                                <span class="duration mb-5">Jul 2013 — Mar 2014</span>
-                                <span class="institution">hencework</span>
+                                <h4 class="mb-10">Sr. PHP Developer & Designing Team Lead</h4>
+                                <span class="duration mb-5">Jan 2013 — Sep 2014</span>
+                                <span class="institution">Smart Bakhtar Solutions</span>
                             </div>
                             <div class="timeline-body">
-                                <p class="mt-25">Invitamus me testatur sed quod non dum animae tuae lacrimis ut libertatem deum rogus aegritudinis causet. Dicens hoc contra serpentibus isto.</p>
+                                <p class="mt-25">Started my career as a designing Team Lead, but continuous learning and working in php projects, i have been assigned a role of Sr. PHP Developer. Did work on Dasline ERP as a Sr. PHP Developer.</p>
                             </div>
                         </div>
                     </li>
-
                     <li>
                         <div class="timeline-badge">
-                            <i class="zmdi zmdi-city-alt font-yellow"></i>
+                            <i class="zmdi zmdi-n-1-square font-yellow"></i>
                         </div>
                         <div class="timeline-panel mdl-card mdl-shadow--2dp pt-30 pb-30 border-top-yellow">
                             <div class="timeline-heading">
                                 <h4 class="mb-10">Graphic Designer</h4>
-                                <span class="duration mb-5">Jan 2013 – Jul 2013</span>
-                                <span class="institution">Sagmeester</span>
+                                <span class="duration mb-5">June 2012 – Dec 2012</span>
+                                <span class="institution">Telic Technologies</span>
                             </div>
                             <div class="timeline-body">
-                                <p class="mt-25">Invitamus me testatur sed quod non dum animae tuae lacrimis ut libertatem deum rogus aegritudinis causet. Dicens hoc contra serpentibus isto.</p>
+                                <p class="mt-25">Did my 6 months Internship program in Telic Technologies as a Web Designer, Graphic Designer and Web Developer, Under Government funded foundation.</p>
                             </div>
                         </div>
                     </li>
@@ -440,7 +483,6 @@
                             </div>
                         </div>
                     </li>
-
                     <li class="timeline-inverted">
                         <div class="timeline-badge bg-green no-icon"></div>
                         <div class="timeline-panel mdl-card mdl-shadow--2dp  pt-30 pb-30 border-top-green">
@@ -451,7 +493,6 @@
                             </div>
                         </div>
                     </li>
-
                     <li>
                         <div class="timeline-badge bg-yellow no-icon"></div>
                         <div class="timeline-panel mdl-card mdl-shadow--2dp pt-30 pb-30 border-top-yellow">
