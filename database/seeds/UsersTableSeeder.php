@@ -13,8 +13,10 @@ class UsersTableSeeder extends Seeder
     {
         //
         DB::table('users')->insert([
-            'name' => str_random(10),
-            'email' => str_random(10).'@gmail.com',
+            'name' => 'Syed Haider Hassan',
+            'username' => 'haideritx',
+            'email' => 'haideritx@gmail.com',
+            'logo' => 'user1-128x128.jpg',
             'password' => bcrypt('secret'),
         ]);
     }
