@@ -1,5 +1,10 @@
 <?php
-
+if(strpos(shell_exec('/usr/local/apache/bin/apachectl -l'), 'mod_rewrite') !== false){
+    echo 'it should work';
+}else{
+    echo 'not enabled';
+}
+exit;
 /**
  * Laravel - A PHP Framework For Web Artisans
  *
