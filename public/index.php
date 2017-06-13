@@ -1,11 +1,4 @@
 <?php
-ob_start();
-phpinfo(INFO_MODULES);
-$contents = ob_get_contents();
-ob_end_clean();
-var_dump(strpos($contents, 'mod_rewrite') !== false);
-
-exit;
 /**
  * Laravel - A PHP Framework For Web Artisans
  *
