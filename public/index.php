@@ -1,5 +1,5 @@
 <?php
-if(strpos(shell_exec('/usr/local/apache/bin/apachectl -l'), 'mod_rewrite') !== false){
+if(in_array('mod_rewrite', apache_get_modules())){
     echo 'it should work';
 }else{
     echo 'not enabled';
