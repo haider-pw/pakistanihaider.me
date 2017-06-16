@@ -4,14 +4,16 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
+    protected $data;
 
     public function __construct()
     {
+        parent::__construct();
         $this->middleware('auth');
+
     }
 
     /**
@@ -21,7 +23,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('admin.dashboard');
+        return view('admin.dashboard')->with('data',$this->data);
     }
 
 }
