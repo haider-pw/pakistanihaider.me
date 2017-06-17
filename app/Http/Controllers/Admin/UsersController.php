@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
 
 class UsersController extends Controller
 {
 
     public function __construct()
     {
+        parent::__construct();
         $this->middleware('auth');
     }
 
@@ -21,8 +22,8 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $data['currentUser'] = Auth::user();
-        return view('admin.users.list',compact('data'));
+        $this->data['users'] = User::all();
+        return view('admin.users.list')->with('data',$this->data);
     }
 
     /**
