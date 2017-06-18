@@ -219,7 +219,7 @@
                         <img src="{{url('assets/admin/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
                         <p>
                             {{isset($data)?$data['loggedInUser']->name:''}}
-                            <small>Member since {{$data['loggedInUser']->created_at->diffForHumans()}}</small>
+                            <small>Member since {{(isset($data['loggedInUser']->created_at) && !empty($data['loggedInUser']->created_at))?$data['loggedInUser']->created_at->diffForHumans():''}}</small>
                         </p>
                     </li>
                     <!-- Menu Footer-->
