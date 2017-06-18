@@ -21,6 +21,11 @@ Route::get('/home', 'HomeController@index');
 
 Route::group(['namespace' => 'Admin','prefix' => 'admin'], function () {
     Route::get('/', 'DashboardController@index')->name('dashboard');
+
+    //For Users
     Route::get('/users', 'UsersController@index');
     Route::get('/profile/{user}', 'UsersController@show');
+
+    //For Resume
+    Route::get('/skills', 'SkillsController@index')->name('skills');
 });

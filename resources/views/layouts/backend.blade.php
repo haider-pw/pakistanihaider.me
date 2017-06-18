@@ -269,6 +269,8 @@
 </div>
 <!-- ./wrapper -->
 
+@yield('modals')
+
 <!-- jQuery 2.2.3 -->
 <script src="{{url('assets/admin/plugins/jQuery/jquery-2.2.3.min.js')}}"></script>
 <!-- jQuery UI 1.11.4 -->
