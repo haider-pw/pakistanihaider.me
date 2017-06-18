@@ -37,7 +37,7 @@
                                 @foreach($data['users'] as $user)
                                     <tr>
                                         <td>{{$user->id}}</td>
-                                        <td><a href="users/{{$user->id}}">{{$user->name}}</a></td>
+                                        <td><a href="profile/{{$user->username}}">{{$user->name}}</a></td>
                                         <td>{{$user->username}}</td>
                                         <td>{{$user->email}}</td>
                                         <td>Status Here</td>

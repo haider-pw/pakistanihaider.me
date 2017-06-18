@@ -16,9 +16,7 @@ class UsersController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * Display List of Users
      */
     public function index()
     {
@@ -47,15 +45,11 @@ class UsersController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    //Gets the username and displays the user information.
+    public function show(User $user)
     {
-        //
+        $this->data['user'] = $user;
+        return view('admin.users.profile.main')->with('data',$this->data);
     }
 
     /**
