@@ -27,15 +27,18 @@ class SkillsController extends Controller
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    //Store the Data in database
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'skill' => 'required'
+        ]);
+
+        $skill = Skill::create([
+            'name' => $request['skill'],
+            'label' => str_replace(' ','_',$request['skill'])
+        ]);
+        return $skill;
     }
 
     /**
@@ -57,7 +60,7 @@ class SkillsController extends Controller
      */
     public function edit(Skill $skill)
     {
-        //
+        return $skill['name'];
     }
 
     /**
@@ -69,7 +72,12 @@ class SkillsController extends Controller
      */
     public function update(Request $request, Skill $skill)
     {
-        //
+        $this->validate($request, [
+            'skillID' => 'required|integer',
+            'skill' => 'required'
+        ]);
+
+//        Skill::updateOrInsert();
     }
 
     /**
