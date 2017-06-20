@@ -47,7 +47,7 @@
                                     <td>
                                         <a style="cursor: pointer;" data-toggle="modal" data-target="#editSkillModal"><i class="fa fa-pencil text-black fa-lg" data-toggle="tooltip" title="Edit"></i></a>
                                         &nbsp;
-                                        <a style="cursor: pointer;"><i class="fa fa-trash text-red fa-lg" data-toggle="tooltip" title="Delete"></i></a>
+                                        <a style="cursor: pointer;" data-toggle="modal" data-target="#deleteSkillModal"><i class="fa fa-trash text-red fa-lg" data-toggle="tooltip" title="Delete"></i></a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -125,6 +125,29 @@
 
         </div>
     </div>
+    <div id="deleteSkillModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <form action="{{url('admin/skill/delete')}}" id="deleteSkill-form" method="GET">
+                    {{ csrf_field() }}
+                    <input type="hidden" id="hiddenSkillID" name="skillID">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Delete Skill?</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Are you sure to delete Skill <strong></strong> ?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" id="deleteSkillBtn">Delete</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
 @endsection
 
 @section('scripts')
@@ -169,7 +192,7 @@
                         //Assign value to the edit skill input box
                         modal.find('form').find('input[name="skill"]').val(data)
                     }
-                })
+                });
             });
             //UpdateSkillBtn on click
             $('#updateSkillBtn').on('click',function(){
@@ -187,6 +210,48 @@
                         console.log(data);
                     }
                 });
+            });
+            //When Delete Modal Is Shown
+            $('#deleteSkillModal').on('shown.bs.modal',function(e){
+                var relatedBtn = e.relatedTarget;
+                var skillID = $(relatedBtn).parents('tr').attr('data-id');
+                var modal = $(this);
+                //Assign SkillID to hidden Field of Modal for later use.
+                modal.find('#hiddenSkillID').val(skillID);
+
+                $.ajax({
+                    url:"{{url('admin/skill/edit')}}/"+skillID,
+                    type:"GET",
+                    success:function (data) {
+                        //Assign value to the edit skill input box
+                        modal.find('form').find('.modal-body p strong').text('"'+data+'"')
+                    }
+                });
+            });
+            //Delete the Skill
+            $('#deleteSkillBtn').on('click',function(){
+                var form = $(this).parents('form');
+                var skillID = form.find('#hiddenSkillID').val();
+                $.ajax({
+                    url:form.attr('action')+'/'+skillID,
+                    type:form.attr('method'),
+                    success:function(output){
+                        var data = output.split('::');
+                        if(data[0] == 'OK'){
+                            form.parents('.modal').modal('hide');
+
+                            //Update the Table As Well.
+                            var skillsTable = $("#skillsList");
+                            var selectedTR = skillsTable.find('tbody tr[data-id="'+skillID+'"]');
+                            selectedTR.remove();
+
+                            if(skillsTable.find('tbody tr').length == 0){
+                                var html = '<tr class="odd"><td valign="top" colspan="4" class="dataTables_empty">No data available in table</td></tr>';
+                                skillsTable.find('tbody').append(html);
+                            }
+                        }
+                    }
+                })
             });
         });
     </script>

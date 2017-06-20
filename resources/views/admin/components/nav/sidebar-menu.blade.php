@@ -53,6 +53,7 @@
         <ul class="treeview-menu">
             <li><a href="pages/charts/chartjs.html"><i class="fa fa-circle-o"></i> System </a></li>
             <li><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> User </a></li>
+            <li><a href="{{route('skills')}}"><i class="fa fa-circle-o"></i> Skills </a></li>
         </ul>
     </li>
     <li>

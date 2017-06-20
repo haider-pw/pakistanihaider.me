@@ -32,4 +32,5 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin'], function () {
     Route::post('/skill/add', 'SkillsController@store');
     Route::get('/skill/edit/{skill}', 'SkillsController@edit');
     Route::post('/skill/update', 'SkillsController@update');
+    Route::get('/skill/delete/{skill}', 'SkillsController@destroy');
 });

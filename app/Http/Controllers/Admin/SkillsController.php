@@ -38,7 +38,12 @@ class SkillsController extends Controller
             'name' => $request['skill'],
             'label' => str_replace(' ','_',$request['skill'])
         ]);
-        return $skill;
+
+        if($skill){
+            return $skill;
+        }else{
+            return 'FAIL::Could not add record to the database::error';
+        }
     }
 
     /**
@@ -67,10 +72,9 @@ class SkillsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Skill  $skill
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Skill $skill)
+    public function update(Request $request)
     {
         $this->validate($request, [
             'skillID' => 'required|integer',
@@ -78,6 +82,12 @@ class SkillsController extends Controller
         ]);
 
 //        Skill::updateOrInsert();
+        $Skill = Skill::find($request['skillID']);
+        $Skill->name = $request['skill'];
+        $boolResult = $Skill->save();
+        if($boolResult){
+            echo 'OK::Record Successfully Updated::success';
+        }
     }
 
     /**
@@ -88,6 +98,9 @@ class SkillsController extends Controller
      */
     public function destroy(Skill $skill)
     {
-        //
+        $boolResult = $skill->delete();
+        if($boolResult){
+            echo 'OK::Record Successfully Deleted::success';
+        }
     }
 }
