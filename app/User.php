@@ -32,7 +32,13 @@ class User extends Authenticatable
         return 'username';
     }
 
-    /*public function skills(){
-        return $this->belongsToMany(Skill::class);
-    }*/
+    public function skills(){
+        return $this->hasMany(Skill::class);
+    }
+
+    public function resume()
+    {
+        return $this->hasOne(Resume::class);
+    }
+
 }

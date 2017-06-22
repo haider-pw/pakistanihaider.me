@@ -26,7 +26,7 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin'], function () {
     Route::get('/users', 'UsersController@index');
     Route::get('/profile/{user}', 'UsersController@show');
 
-//For Resume
+//For Configuration
     //
     Route::get('/skills', 'SkillsController@index')->name('skills');
     Route::post('/skill/add', 'SkillsController@store');
@@ -34,3 +34,11 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin'], function () {
     Route::post('/skill/update', 'SkillsController@update');
     Route::get('/skill/delete/{skill}', 'SkillsController@destroy');
 });
+
+
+//For Just Prefix admin but Actual File Outside.
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('/resume/basics','ResumeController@basic');
+});
+
+
