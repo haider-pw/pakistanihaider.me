@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
+use App\Resume;
 use Illuminate\Http\Request;
 
 class ResumeController extends Controller
@@ -12,6 +14,7 @@ class ResumeController extends Controller
     }
 
     public function basic(){
-        return view('admin.resume.basics');
+        $this->data['basics'] =  User::with('resume')->where('resume',1)->first();
+        return view('admin.resume.basics')->with('data',$this->data);
     }
 }

@@ -24,7 +24,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Full Name</label>
-                        <input type="text" class="form-control" name="name">
+                        <input type="text" class="form-control" name="name" value="{{$data['basics']->name}}">
                     </div>
                     <!-- /.form-group -->
                     <div class="form-group">
@@ -49,7 +49,7 @@
                     <!-- /.form-group -->
                     <div class="form-group">
                         <label>Email</label>
-                        <input type="text" class="form-control" name="email">
+                        <input type="email" class="form-control" name="email" value="{{$data['basics']->email}}">
                     </div>
                     <!-- /.form-group -->
                     <div class="form-group">
@@ -144,7 +144,6 @@
                             <!-- /.input group -->
                         </div>
                         <!-- /.form group -->
-
                     </div>
                     <!-- /.box-body -->
                 </div>
