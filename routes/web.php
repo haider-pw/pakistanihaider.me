@@ -39,6 +39,7 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin'], function () {
 //For Just Prefix admin but Actual File Outside.
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/resume/basics','ResumeController@basic');
+    Route::post('/resume/basics/update','ResumeController@basicsUpdate');
 });
 
 

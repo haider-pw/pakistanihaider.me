@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('logo');
             $table->string('password');
+            $table->string('address')->nullable();
             $table->string('phone',16);
             $table->tinyInteger('hasResume');
 
