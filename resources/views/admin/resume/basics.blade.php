@@ -29,7 +29,7 @@
                     <!-- /.form-group -->
                     <div class="form-group">
                         <label>Position</label>
-                        <input type="text" class="form-control" name="position">
+                        <input type="text" class="form-control" name="position" value="{{$data['basics']->resume->position}}">
                     </div>
                     <div class="form-group">
                         <label>Freelance</label>
@@ -54,7 +54,7 @@
                     <!-- /.form-group -->
                     <div class="form-group">
                         <label>Phone</label>
-                        <input type="text" class="form-control" name="phone">
+                        <input type="text" class="form-control" name="phone" value="{{$data['basics']->phone}}">
                     </div>
                     <!-- /.form-group -->
                 </div>
@@ -79,7 +79,6 @@
                         <!-- Date dd/mm/yyyy -->
                         <div class="form-group">
                             <label>Facebook</label>
-
                             <div class="input-group">
                                 <div class="input-group-addon">
                                     <i class="fa fa-facebook"></i>

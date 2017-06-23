@@ -20,7 +20,16 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('logo');
             $table->string('password');
-            $table->tinyInteger('resume');
+            $table->string('phone',16);
+            $table->tinyInteger('hasResume');
+
+            //Social Columns
+            $table->string('social_facebook')->nullable();
+            $table->string('social_twitter')->nullable();
+            $table->string('social_linkedin')->nullable();
+            $table->string('social_dribbble')->nullable();
+            $table->string('social_instagram')->nullable();
+
             $table->rememberToken();
             $table->timestamps();
         });

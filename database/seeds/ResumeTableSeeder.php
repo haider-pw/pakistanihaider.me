@@ -14,6 +14,7 @@ class ResumeTableSeeder extends Seeder
     {
         DB::table('resumes')->insert([
             'user_id' => 1,
+            'position' => 'FULL STACK DEVELOPER',
             'available' => 1,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);

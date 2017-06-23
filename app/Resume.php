@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Resume extends Model
 {
     protected $fillable = [
-        'user_id', 'available',
+        'user_id', 'available', 'position'
     ];
 
     public function user()

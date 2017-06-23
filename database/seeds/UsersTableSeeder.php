@@ -18,8 +18,9 @@ class UsersTableSeeder extends Seeder
             'username' => 'haideritx',
             'email' => 'haideritx@gmail.com',
             'logo' => 'user1-128x128.jpg',
-            'resume' => 1,
+            'hasResume' => 1,
             'password' => bcrypt('secret'),
+            'phone' => '+92 334 8123456',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
     }

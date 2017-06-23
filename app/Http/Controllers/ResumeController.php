@@ -14,7 +14,7 @@ class ResumeController extends Controller
     }
 
     public function basic(){
-        $this->data['basics'] =  User::with('resume')->where('resume',1)->first();
+        $this->data['basics'] =  User::with('resume')->where('hasResume',1)->first();
         return view('admin.resume.basics')->with('data',$this->data);
     }
 }
