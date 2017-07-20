@@ -57,8 +57,8 @@
                             </div>
                             <div class="col-md-7 col-xs-12">
                                 <div class="info-wrap">
-                                    <h1>Syed Haider Hassan</h1>
-                                    <h5 class="mt-20 font-grey">Full Stack Developer</h5>
+                                    <h1>{{!empty($data['activeResume']->user->name)?$data['activeResume']->user->name:'Your Name'}}</h1>
+                                    <h5 class="mt-20 font-grey">{{!empty($data['activeResume']->position)?$data['activeResume']->position:'Your Name'}}</h5>
                                     <div class="mt-30">
                                         <a id="download_cv" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect  bg-green font-white mr-10" href="#">download cv</a>
                                         <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect bg-blue font-white" href="#contact_sec" data-scroll>contact</a>
@@ -477,9 +477,9 @@
                         <div class="timeline-badge bg-blue no-icon"></div>
                         <div class="timeline-panel mdl-card mdl-shadow--2dp pt-30 pb-30 border-top-blue">
                             <div class="timeline-heading">
-                                <h4 class="mb-10">master of computer science</h4>
-                                <span class="duration mb-5">2014 - 2016</span>
-                                <span class="institution">stakford university</span>
+                                <h4 class="mb-10">MS in Software Engineering</h4>
+                                <span class="duration mb-5">2015 - 2017</span>
+                                <span class="institution">Abasyn University</span>
                             </div>
                         </div>
                     </li>
@@ -487,9 +487,9 @@
                         <div class="timeline-badge bg-green no-icon"></div>
                         <div class="timeline-panel mdl-card mdl-shadow--2dp  pt-30 pb-30 border-top-green">
                             <div class="timeline-heading">
-                                <h4 class="mb-10">Master Of Art</h4>
-                                <span class="duration mb-5">2012 - 2014</span>
-                                <span class="institution">Cedarglen University</span>
+                                <h4 class="mb-10">Bachelor Of Software Engineering</h4>
+                                <span class="duration mb-5">2008 - 2012</span>
+                                <span class="institution">City University of Science and Information Technology</span>
                             </div>
                         </div>
                     </li>
@@ -497,9 +497,9 @@
                         <div class="timeline-badge bg-yellow no-icon"></div>
                         <div class="timeline-panel mdl-card mdl-shadow--2dp pt-30 pb-30 border-top-yellow">
                             <div class="timeline-heading">
-                                <h4 class="mb-10">Bachelor Of Culture</h4>
-                                <span class="duration mb-5">2009 - 2012</span>
-                                <span class="institution">Crowmont Design School</span>
+                                <h4 class="mb-10">Faculty of Computer Science (FCS) </h4>
+                                <span class="duration mb-5">2006 - 2008</span>
+                                <span class="institution">Peshawar Model Degree College</span>
                             </div>
                         </div>
                     </li>
@@ -507,9 +507,9 @@
                         <div class="timeline-badge bg-red no-icon"></div>
                         <div class="timeline-panel mdl-card mdl-shadow--2dp  pt-30 pb-30 border-top-red">
                             <div class="timeline-heading">
-                                <h4 class="mb-10">Graphic Design Diploma</h4>
-                                <span class="duration mb-5">2008 - 2009</span>
-                                <span class="institution">Shorepath Collegiate Institute</span>
+                                <h4 class="mb-10">Secondary School Certificate (SSC)</h4>
+                                <span class="duration mb-5">Completed in 2006</span>
+                                <span class="institution">Peshawar Model School</span>
                             </div>
                         </div>
                     </li>

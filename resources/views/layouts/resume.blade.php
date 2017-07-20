@@ -37,7 +37,7 @@
         <header class="mdl-layout__header">
             <div class="mdl-layout__header-row mdl-scroll-spy-1">
                 <!-- Title -->
-                <a href="index.html"><span class="mdl-layout-title">Syed Haider Hassan</span></a>
+                <a href="index.html"><span class="mdl-layout-title">{{!empty($data['activeResume']->user->name)?$data['activeResume']->user->name:'Your Name'}}</span></a>
                 <div class="mdl-layout-spacer"></div>
                 <ul class="nav mdl-navigation mdl-layout--large-screen-only">
                     <li><a class="mdl-navigation__link" data-scroll href="#body">about</a></li>

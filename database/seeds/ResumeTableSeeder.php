@@ -16,7 +16,8 @@ class ResumeTableSeeder extends Seeder
             'user_id' => 1,
             'position' => 'FULL STACK DEVELOPER',
             'available' => 1,
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'active' => 1
         ]);
     }
 }

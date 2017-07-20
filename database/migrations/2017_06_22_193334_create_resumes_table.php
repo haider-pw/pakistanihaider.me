@@ -19,6 +19,7 @@ class CreateResumesTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('position');
             $table->tinyInteger('available')->unsigned();
+            $table->tinyInteger('active')->unsigned(); //Is the Resume Active to Show on Front, Only 1 Resume Shall be Active at a time.
             $table->timestamps();
         });
     }
