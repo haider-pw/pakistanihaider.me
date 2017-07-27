@@ -7,20 +7,31 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
-use Illuminate\Support\Facades\Auth;
-
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    protected $data;
-    function __construct() {
-        $this->middleware(function ($request, $next) {
-            if (!\Auth::check()) {
-                return redirect('/login');
+    public function jsonMessage($type,$message,$options=[]){
+        if(empty($type) || empty($message)){
+            return false;
+        }
+
+        $notification['type'] = $type;
+        $notification['message'] = $message;
+
+        if(isset($options['box']) and !empty($options['box'])){
+            $notification['box'] = $options['box'];
+        }else{
+            switch ($notification['type']){
+                case 'FAIL':
+                    $notification['box'] = 'error';
+                    break;
+                case 'OK':
+                    $notification['box'] = 'success';
+                    break;
             }
-            $this->data['loggedInUser'] = Auth::user()?Auth::user():null; // you can access user here
-            return $next($request);
-        });
+        }
+
+        return json_encode($notification);
     }
 }

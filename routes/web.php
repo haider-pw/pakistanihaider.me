@@ -19,25 +19,21 @@
 Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index');
 Auth::routes();
-Route::group(['namespace' => 'Admin','prefix' => 'admin'], function () {
+
+Route::group(['namespace' => 'Admin','prefix' => 'admin', 'middleware'=>'auth'], function () {
     Route::get('/', 'DashboardController@index')->name('dashboard');
 
-//For Users
+    //For Users
     Route::get('/users', 'UsersController@index');
     Route::get('/profile/{user}', 'UsersController@show');
 
-//For Configuration
-    //
+    //For Configuration
     Route::get('/skills', 'SkillsController@index')->name('skills');
     Route::post('/skill/add', 'SkillsController@store');
     Route::get('/skill/edit/{skill}', 'SkillsController@edit');
     Route::post('/skill/update', 'SkillsController@update');
     Route::get('/skill/delete/{skill}', 'SkillsController@destroy');
-});
 
-
-//For Just Prefix admin but Actual File Outside.
-Route::group(['prefix' => 'admin'], function () {
     Route::get('/resume/basics','ResumeController@basic');
     Route::post('/resume/basics/update','ResumeController@basicsUpdate');
 });

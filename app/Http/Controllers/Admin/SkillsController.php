@@ -2,12 +2,19 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\AdminController;
 use App\Skill;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use Illuminate\Database\QueryException;
 
-class SkillsController extends Controller
+class SkillsController extends AdminController
 {
+
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
     /**
      * Display a listing of the resources
      */
@@ -34,10 +41,19 @@ class SkillsController extends Controller
             'skill' => 'required'
         ]);
 
-        $skill = Skill::create([
-            'name' => $request['skill'],
-            'label' => str_replace(' ','_',$request['skill'])
-        ]);
+        try{
+            $skill = Skill::create([
+                'name' => $request['skill'],
+                'label' => str_replace(' ','_',$request['skill'])
+            ]);
+        }catch(QueryException $e){
+            $error_code = $e->errorInfo[1];
+            if($error_code == '1062'){
+                $errorMsg = 'Record Already exist for "'.$request['skill'].'"';
+                return $this->jsonMessage('FAIL',$errorMsg);
+            }
+            return $this->jsonMessage('FAIL','Could Not Add the Entry for "'.$request['skill'].'" Having the Code "'.$error_code);
+        }
 
         if($skill){
             return $skill;

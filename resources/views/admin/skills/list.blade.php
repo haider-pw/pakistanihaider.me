@@ -155,7 +155,7 @@
     <script src="{{url('assets/admin/plugins/datatables/jquery.dataTables.min.js')}}"></script>
     <script src="{{url('assets/admin/plugins/datatables/dataTables.bootstrap.min.js')}}"></script>
 
-    <script>
+    <script type="text/javascript">
         $(function () {
             $("#skillsList").DataTable();
             //AddSkillBtn on click
@@ -173,7 +173,11 @@
                     data:form.serialize(),
                     dataType: 'json',
                     success: function(data){
-                        console.log(data);
+                        if(data.type){ //This means there is some Error.
+                            console.log(data.message);
+                        }else if(data.label){ //This means record was successfully added.
+                            form.parents('.modal').modal('hide');
+                        }
                     }
                 });
             });

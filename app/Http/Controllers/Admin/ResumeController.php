@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\AdminController;
 use App\User;
 use App\Resume;
 use Illuminate\Http\Request;
 
-class ResumeController extends Controller
+class ResumeController extends AdminController
 {
     public function index()
     {
