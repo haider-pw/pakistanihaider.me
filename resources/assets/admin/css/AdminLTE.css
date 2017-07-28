@@ -4940,3 +4940,12 @@ table.text-center th {
     white-space: normal !important;
   }
 }
+
+/*Custom Notifications*/
+.notifications > div {
+  bottom: 15px;
+  position: fixed;
+  display: block;
+  z-index: 100;
+  right: 15px;
+}

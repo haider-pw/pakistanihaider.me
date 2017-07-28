@@ -13,7 +13,7 @@
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="{{url('assets/admin/css/AdminLTE.min.css')}}">
+    <link rel="stylesheet" href="{{url('assets/admin/css/AdminLTE.css')}}">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="{{url('assets/admin/css/skins/_all-skins.min.css')}}">
@@ -59,7 +59,6 @@
             @yield('pageHead')
             @include('admin.components.breadcrumb')
         </section>
-
         <!-- Main content -->
         @yield('content')
         <!-- /.content -->
@@ -308,6 +307,19 @@
 {{--<script src="{{url('assets/admin/js/pages/dashboard.js')}}"></script>--}}
 <!-- AdminLTE for demo purposes -->
 {{--<script src="{{url('assets/admin/js/demo.js')}}"></script>--}}
+<script type="text/javascript">
+    $(function(){
+        $('div.alert').not('.alert-important').delay(3000).fadeOut(350);
+    });
+
+    //Custom Scripting.
+    function Notification(level,Message){
+        var html = '<div class="col-md-4 col-xs-12 alert alert-'+level+'" role="alert">';
+        html+= Message;
+        html+= '</div>';
+        $('section.notifications').html(html);
+    }
+</script>
 @yield('scripts')
 </body>
 </html>

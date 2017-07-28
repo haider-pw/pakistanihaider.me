@@ -14,6 +14,9 @@
 @endsection
 
 @section('content')
+    <section class="notifications">
+        @include('flash::message')
+    </section>
     <section class="content">
         <div class="row">
             <div class="col-md-2 pull-right">
@@ -175,6 +178,7 @@
                     success: function(data){
                         if(data.type){ //This means there is some Error.
                             console.log(data.message);
+                            Notification('success',data.message);
                         }else if(data.label){ //This means record was successfully added.
                             form.parents('.modal').modal('hide');
                         }

@@ -20,6 +20,7 @@ class SkillsController extends AdminController
      */
     public function index()
     {
+//        flash('Hello World')->important();
         $this->data['skills'] = Skill::all();
         return view('admin.skills.list')->with('data',$this->data);
     }
