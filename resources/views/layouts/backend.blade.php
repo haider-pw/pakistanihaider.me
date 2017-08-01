@@ -29,6 +29,8 @@
     <link rel="stylesheet" href="{{url('assets/admin/plugins/daterangepicker/daterangepicker.css')}}">
     <!-- bootstrap wysihtml5 - text editor -->
     <link rel="stylesheet" href="{{url('assets/admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="{{url('assets/admin/css/animate.css')}}">
 
     @yield('styles')
 
@@ -314,7 +316,7 @@
 
     //Custom Scripting.
     function Notification(level,Message){
-        var html = '<div class="col-md-4 col-xs-12 alert alert-'+level+'" role="alert">';
+        var html = '<div class="col-sm-6 col-md-4 col-xs-12 alert alert-'+level+'" role="alert">';
         html+= Message;
         html+= '</div>';
         $('section.notifications').html(html);

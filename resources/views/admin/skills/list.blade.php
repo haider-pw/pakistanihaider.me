@@ -178,7 +178,7 @@
                     success: function(data){
                         if(data.type){ //This means there is some Error.
                             console.log(data.message);
-                            Notification('success',data.message);
+                            Notification(data.box,data.message);
                         }else if(data.label){ //This means record was successfully added.
                             form.parents('.modal').modal('hide');
                         }
