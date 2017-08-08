@@ -17,6 +17,7 @@ class CreateSkillsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('label')->unique();
+            $table->integer('percentage')->default(0);
             $table->timestamps();
         });
     }
