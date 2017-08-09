@@ -213,8 +213,8 @@
                     type:"GET",
                     success:function (data) {
                         //Assign value to the edit skill input box
-                        modal.find('form').find('input[name="skill"]').val(data.skill)
-                        modal.find('form').find('input[name="percentage"]').val(data.percentage)
+                        modal.find('form').find('input[name="skill"]').val(data.skill);
+                        modal.find('form').find('input[name="percentage"]').val(data.percentage);
                     }
                 });
             });
