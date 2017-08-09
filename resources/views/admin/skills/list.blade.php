@@ -38,6 +38,7 @@
                                 <th>Id</th>
                                 <th>Skill Name</th>
                                 <th>Label</th>
+                                <th>Percentage</th>
                                 <th>Actions</th>
                             </tr>
                             </thead>
@@ -47,6 +48,7 @@
                                     <td>{{$skill->id}}</td>
                                     <td>{{$skill->name}}</td>
                                     <td>{{$skill->label}}</td>
+                                    <td>{{$skill->percentage}}</td>
                                     <td>
                                         <a style="cursor: pointer;" data-toggle="modal" data-target="#editSkillModal"><i class="fa fa-pencil text-black fa-lg" data-toggle="tooltip" title="Edit"></i></a>
                                         &nbsp;
@@ -92,6 +94,13 @@
                         <label for="skillInput">Skill</label>
                         <input class="form-control" type="text" name="skill" id="skillInput" placeholder="e-g HTML">
                     </div>
+                    <div class="form-group">
+                        <label for="percentageInput">Percentage</label>
+                        <div class="input-group">
+                            <span class="input-group-addon">%</span>
+                            <input class="form-control" type="text" name="percentage" id="percentageInput" placeholder="e-g 70">
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-success" id="addSkillBtn">Add</button>
@@ -117,6 +126,13 @@
                         <div class="form-group">
                             <label for="skillInput">Skill</label>
                             <input class="form-control" type="text" name="skill" id="skillInput" placeholder="e-g HTML">
+                        </div>
+                        <div class="form-group">
+                            <label for="percentageInput">Percentage</label>
+                            <div class="input-group">
+                                <span class="input-group-addon">%</span>
+                                <input class="form-control" type="text" name="percentage" id="percentageInput" placeholder="e-g 70">
+                            </div>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -177,7 +193,6 @@
                     dataType: 'json',
                     success: function(data){
                         if(data.type){ //This means there is some Error.
-                            console.log(data.message);
                             Notification(data.box,data.message);
                         }else if(data.label){ //This means record was successfully added.
                             form.parents('.modal').modal('hide');
@@ -198,7 +213,8 @@
                     type:"GET",
                     success:function (data) {
                         //Assign value to the edit skill input box
-                        modal.find('form').find('input[name="skill"]').val(data)
+                        modal.find('form').find('input[name="skill"]').val(data.skill)
+                        modal.find('form').find('input[name="percentage"]').val(data.percentage)
                     }
                 });
             });
@@ -215,7 +231,10 @@
                     data:form.serialize(),
                     dataType: 'json',
                     success: function(data){
-                        console.log(data);
+                        if(data.type){
+                            Notification(data.box,data.message);
+                            form.parents('.modal').modal('hide');
+                        }
                     }
                 });
             });

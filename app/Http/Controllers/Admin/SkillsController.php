@@ -78,11 +78,14 @@ class SkillsController extends AdminController
      * Show the form for editing the specified resource.
      *
      * @param  \App\Skill  $skill
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function edit(Skill $skill)
     {
-        return $skill['name'];
+        return [
+            'skill'=>$skill['name'],
+            'percentage' => $skill['percentage']
+            ];
     }
 
     /**
@@ -101,9 +104,11 @@ class SkillsController extends AdminController
 //        Skill::updateOrInsert();
         $Skill = Skill::find($request['skillID']);
         $Skill->name = $request['skill'];
+        $Skill->percentage = $request['percentage'];
         $boolResult = $Skill->save();
         if($boolResult){
-            echo 'OK::Record Successfully Updated::success';
+            $successMsg = 'Record Successfully Updated';
+            return $this->jsonMessage('OK',$successMsg);
         }
     }
 
