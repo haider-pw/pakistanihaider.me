@@ -34,6 +34,8 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin', 'middleware'=>'auth'],
     Route::post('/skill/update', 'SkillsController@update');
     Route::get('/skill/delete/{skill}', 'SkillsController@destroy');
 
+    Route::get('/portfolio','PortfolioController@show');
+
     Route::get('/resume/basics','ResumeController@basic');
     Route::post('/resume/basics/update','ResumeController@basicsUpdate');
 });

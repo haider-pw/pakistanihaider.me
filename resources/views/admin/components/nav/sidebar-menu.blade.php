@@ -24,7 +24,7 @@
             <li><a href="{{url('admin/resume/basics')}}"><i class="fa fa-circle-o"></i> Basic </a></li>
             <li><a href="{{route('skills')}}"><i class="fa fa-circle-o"></i> Skills </a></li>
             <li><a href="pages/layout/fixed.html"><i class="fa fa-circle-o"></i> What I Do?</a></li>
-            <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Portfolio</a></li>
+            <li><a href="{{url('admin/portfolio')}}"><i class="fa fa-circle-o"></i> Portfolio</a></li>
             <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Interests</a></li>
             <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Experience</a></li>
             <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Education</a></li>
