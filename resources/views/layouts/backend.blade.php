@@ -61,6 +61,11 @@
             @yield('pageHead')
             @include('admin.components.breadcrumb')
         </section>
+
+        <section class="notifications">
+            @include('flash::message')
+        </section>
+
         <!-- Main content -->
         @yield('content')
         <!-- /.content -->

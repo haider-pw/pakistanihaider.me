@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\AdminController;
+use App\Models\Portfolio;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
-class PortfolioController extends Controller
+class PortfolioController extends AdminController
 {
     public function show(){
-        return view('admin.portfolio.list');
+        $this->data['portfolio'] = Portfolio::all();
+        return view('admin.portfolio.list')->with('data',$this->data);
     }
 }

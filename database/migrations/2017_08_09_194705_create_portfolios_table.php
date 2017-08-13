@@ -15,6 +15,7 @@ class CreatePortfoliosTable extends Migration
     {
         Schema::create('portfolio', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('resume_id')->unsigned();
             $table->string('title');
             $table->string('website')->nullable();
             $table->string('company')->nullable(); //Company Under which this project was built on.
@@ -23,6 +24,9 @@ class CreatePortfoliosTable extends Migration
             $table->text('images')->nullable(); //Json Containing all the Images/videos will be shown inside the details page.
             $table->text('description')->nullable();
             $table->timestamps();
+
+            //Add a foreign key
+            $table->foreign('resume_id')->references('id')->on('resumes')->onDelete('cascade');
         });
     }
 

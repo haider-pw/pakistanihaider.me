@@ -27,7 +27,7 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin', 'middleware'=>'auth'],
     Route::get('/users', 'UsersController@index');
     Route::get('/profile/{user}', 'UsersController@show');
 
-    //For Configuration
+    //For Resume
     Route::get('/skills', 'SkillsController@index')->name('skills');
     Route::post('/skill/add', 'SkillsController@store');
     Route::get('/skill/edit/{skill}', 'SkillsController@edit');
@@ -38,6 +38,14 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin', 'middleware'=>'auth'],
 
     Route::get('/resume/basics','ResumeController@basic');
     Route::post('/resume/basics/update','ResumeController@basicsUpdate');
+
+
+    //For System Configurations
+    Route::group(['namespace'=>'System'],function(){
+        Route::get('/systemSkills', 'SkillsController@show')->name('sysSkills');
+        Route::get('/systemSkillsGroups', 'SkillsGroupsController@show')->name('sysSkillsGroups');
+        Route::get('/systemConfiguration', 'ConfigurationController@show')->name('sysConfiguration');
+    });
 });
 
 
