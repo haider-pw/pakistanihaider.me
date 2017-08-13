@@ -38,6 +38,7 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin', 'middleware'=>'auth'],
 
     Route::get('/resume/basics','ResumeController@basic');
     Route::post('/resume/basics/update','ResumeController@basicsUpdate');
+    Route::post('/resume/basics/live-update','ResumeController@basicConfigUpdate');
 
 
     //For System Configurations

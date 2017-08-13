@@ -94,6 +94,42 @@
                     }
                 });
             });
+
+
+            //On Update of Basics Configuration.
+            $('#resumeConfigForm').on('change','input',function () {
+
+                var updatedSelector = $(this);
+                var form = $(this).parents('form');
+                var updatedSelectorName = $(this).attr('name');
+                var updatedSelectorValue = $(this).val();
+                var token = form.find('input[name="_token"]').val();
+                var postData = {
+                    _token: token
+                };
+                if(updatedSelector.is(':checkbox')){
+                    postData._type = 'checkbox';
+
+                    //If its a checkbox, then now check if its been checked or not.
+                    if(updatedSelector.is(':checked')){
+                        postData[updatedSelectorName] = 'true';
+                    }else{
+                        postData[updatedSelectorName] = 'false';
+                    }
+
+                }else{
+                    postData.type = 'text';
+                }
+
+                $.ajax({
+                    url:form.attr('action'),
+                    type:form.attr('method'),
+                    data: postData,
+                    success:function(output){
+                        console.log(output);
+                    }
+                });
+            }); //End of Basics Configuration Function.
         });
     </script>
 @endsection
