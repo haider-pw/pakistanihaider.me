@@ -1,5 +1,4 @@
-
-    <div class="col-md-6">
+<div class="col-md-6">
         <div class="box box-danger">
             <div class="box-header">
                 <h3 class="box-title">Resume Configurations</h3>
@@ -11,7 +10,7 @@
                 <div class="form-group">
                     <label for="max_skills_groups_boxes">Max Skills Groups Boxes</label>
                     <div class="input-group">
-                        <input type="text" class="form-control" id="max_skills_groups_boxes" name="max_skills_groups_boxes">
+                        <input type="text" class="form-control" id="max_skills_groups_boxes" name="max_skills_groups_boxes" value="{{isset($data['basics']->resume->max_skills_groups_boxes)?$data['basics']->resume->max_skills_groups_boxes:''}}">
                         <div class="input-group-addon">
                             <i class="fa fa-question" data-toggle="tooltip" title="Skills Boxes that will be shown on main site."></i>
                         </div>

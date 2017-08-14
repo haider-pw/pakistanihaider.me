@@ -16,7 +16,7 @@ class UpdateResumesTableAddColumnMaxSkillsGroups extends Migration
         Schema::table('resumes',function(Blueprint $table){
             if(!Schema::hasColumn('resumes','max_skills_groups_boxes'))
             {
-                $table->string('max_skills_groups_boxes')->default(1)->after('available');
+                $table->integer('max_skills_groups_boxes')->default(1)->after('available');
             }
         });
     }

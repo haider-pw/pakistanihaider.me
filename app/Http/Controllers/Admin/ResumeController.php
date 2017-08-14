@@ -23,28 +23,41 @@ class ResumeController extends AdminController
         $postedData = $request->all();
         //Get the posted value key and value.
         foreach($postedData as $key=>$value){
-            if(!str_contains($key,'_')){
+            if(!in_array($key,['_type','_token'])){
                 $columnName = $key;
                 $columnValue = $value;
             }
         }
 
         //If we have not gotten any key/value, there must be some bug, just return back the user request.
-
         if(!isset($columnValue) || !isset($columnName)){
-            return false;
+            return $this->jsonMessage('FAIL','Invalid Request');
         }
 
         //Now we need to check what is the Type of data that's been sent to us.
         if(isset($postedData->_type) and $postedData->_type === 'checkbox'){
+/*            $activeResume = Resume::where('active','1')->first();
+            if(!empty($activeResume)){
+                //Means we have the record, just add update the Record here.
+                $activeResume->$columnName = $columnValue;
+            }*/
+        }
+        elseif(isset($postedData['_type']) and $postedData['_type'] === 'text')
+        {
             $activeResume = Resume::where('active','1')->first();
             if(!empty($activeResume)){
                 //Means we have the record, just add update the Record here.
                 $activeResume->$columnName = $columnValue;
+                $boolResult = $activeResume->save();
+                if($boolResult){
+                    return $this->jsonMessage('OK','Record Successfully Updated for "'.$columnName.'" Having the Updated Value "'.$columnValue);
+                }else{
+                    return $this->jsonMessage('FAIL','Could Not Update the Record for "'.$columnName.'" Having the Updated Value "'.$columnValue);
+                }
             }
         }
 
-        return false;
+        return $this->jsonMessage('FAIL','Something went Wrong, Could Not Update the Record, Please Contact System Administrator for Further Assistance.');
     }
 
     public function basicsUpdate(Request $request){

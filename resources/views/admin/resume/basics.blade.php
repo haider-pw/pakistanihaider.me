@@ -13,6 +13,9 @@
 @endsection
 
 @section('content')
+    <section class="notifications">
+        @include('flash::message')
+    </section>
     <section class="content">
     <div class="box box-default">
         <form id="basicsInformationForm" action="{{url('admin/resume/basics/update')}}" method="POST">
@@ -118,15 +121,21 @@
                     }
 
                 }else{
-                    postData.type = 'text';
+                    postData._type = 'text';
+                    postData[updatedSelectorName] = updatedSelectorValue;
                 }
 
+                //Send the Request.
                 $.ajax({
                     url:form.attr('action'),
                     type:form.attr('method'),
                     data: postData,
-                    success:function(output){
-                        console.log(output);
+                    dataType:"json",
+                    success:function(data){
+                        if(data.type){
+                            Notification(data.box,data.message)
+                        }
+
                     }
                 });
             }); //End of Basics Configuration Function.
