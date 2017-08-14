@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\AdminController;
+use App\Models\Resume\BlockVisibility;
 use App\User;
 use App\Resume;
 use Illuminate\Http\Request;
@@ -16,6 +17,7 @@ class ResumeController extends AdminController
 
     public function basic(){
         $this->data['basics'] =  User::with('resume')->where('hasResume',1)->first();
+        $this->data['blocks'] = BlockVisibility::where('resume_id',$this->data['basics']->resume->id)->get()->pluck('value','key');
         return view('admin.resume.basics')->with('data',$this->data);
     }
 
@@ -35,12 +37,28 @@ class ResumeController extends AdminController
         }
 
         //Now we need to check what is the Type of data that's been sent to us.
-        if(isset($postedData->_type) and $postedData->_type === 'checkbox'){
-/*            $activeResume = Resume::where('active','1')->first();
+        if(isset($postedData['_type']) and $postedData['_type'] === 'checkbox'){
+            $activeResume = Resume::where('active','1')->first();
+
             if(!empty($activeResume)){
                 //Means we have the record, just add update the Record here.
-                $activeResume->$columnName = $columnValue;
-            }*/
+//                $activeResume->$columnName = $columnValue;
+                if($columnValue === 'true'){
+                    $visibility = 'showBlock';
+                }else{
+                    $visibility = 'hideBlock';
+                }
+
+                if(isset($columnName)){
+                    $bool = $activeResume->$visibility($columnName);
+                }
+
+                if(isset($bool) and $bool == true){
+                    return $this->jsonMessage('OK','Record Successfully Updated for "'.$columnName.'" Having the Updated Value "'.$columnValue);
+                }else{
+                    return $this->jsonMessage('FAIL','Could Not Update the Record for "'.$columnName.'" Having the Updated Value "'.$columnValue);
+                }
+            }
         }
         elseif(isset($postedData['_type']) and $postedData['_type'] === 'text')
         {
