@@ -15,5 +15,6 @@ class DatabaseSeeder extends Seeder
          $this->call(ResumeTableSeeder::class);
          $this->call(SkillsGroupsTableSeeder::class);
          $this->call(SystemSkillsTableSeeder::class);
+         $this->call(ResumesBlocksVisibilitySeeder::class);
     }
 }
