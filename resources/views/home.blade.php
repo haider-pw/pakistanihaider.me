@@ -104,6 +104,7 @@
         </section>
         <!--/About Sec-->
 
+        @if(isset($data['blocks']['skills_boxes']) && $data['blocks']['skills_boxes'] == '1')
         <!--Skills Sec-->
         <section id="skills_sec" class="skills-sec sec-pad-top-sm">
             <div class="row">
@@ -210,7 +211,9 @@
             </div>
         </section>
         <!--/Skills Sec-->
+        @endif
 
+        @if(isset($data['blocks']['what_i_do']) && $data['blocks']['what_i_do'] == '1')
         <!--Profile Sec-->
         <section id="profile_sec" class="profile-sec sec-pad-top-sm">
             <h2 class="mb-30">what i do</h2>
@@ -249,7 +252,9 @@
             </div>
         </section>
         <!--/Profile Sec-->
+        @endif
 
+        @if(isset($data['blocks']['portfolio']) && $data['blocks']['portfolio'] == '1')
         <!--Portfolio Sec-->
         <section id="portfolio_sec" class="portfolio-sec sec-pad-top-sm">
             <div class="mb-15">
@@ -352,7 +357,9 @@
             </div>
         </section>
         <!--/Portfolio Sec-->
+        @endif
 
+        @if(isset($data['blocks']['interests']) && $data['blocks']['interests'] == '1')
         <!--Interest Sec-->
         <section id="interest_sec" class="interest-sec sec-pad-top-sm">
             <h2 class="mb-30">interests</h2>
@@ -396,7 +403,9 @@
             </div>
         </section>
         <!--/Interest Sec-->
+        @endif
 
+        @if(isset($data['blocks']['experience']) && $data['blocks']['experience'] == '1')
         <!--Experience Sec-->
         <section id="experience_sec" class="experience-sec sec-pad-top-sm">
             <h2 class="mb-30">experience</h2>
@@ -467,7 +476,9 @@
             </div>
         </section>
         <!--/Experience Sec-->
+        @endif
 
+        @if(isset($data['blocks']['education']) && $data['blocks']['education'] == '1')
         <!--Education Sec-->
         <section id="education_sec" class="education-sec sec-pad-top-sm">
             <h2 class="mb-30">education</h2>
@@ -518,7 +529,9 @@
             </div>
         </section>
         <!--/Education Sec-->
+        @endif
 
+        @if(isset($data['blocks']['blog']) && $data['blocks']['blog'] == '1')
         <!--Blog Sec-->
         <section id="blog_sec" class="blog-sec sec-pad-top-sm">
             <h2 class="mb-30">blog</h2>
@@ -628,7 +641,9 @@
             </div>
         </section>
         <!--/Blog Sec-->
+        @endif
 
+        @if(isset($data['blocks']['testimonials']) && $data['blocks']['testimonials'] == '1')
         <!--References Sec-->
         <section id="references_sec" class="reference-sec sec-pad-top-sm">
             <h2 class="mb-30">testimonial</h2>
@@ -654,7 +669,9 @@
 
         </section>
         <!--/References Sec-->
+        @endif
 
+        @if(isset($data['blocks']['client_images']) && $data['blocks']['client_images'] == '1')
         <!--Client Sec-->
         <section id="client_sec" class="client-sec sec-pad-top-sm">
             <div class="row">
@@ -671,7 +688,9 @@
             </div>
         </section>
         <!--/Client Sec-->
+        @endif
 
+        @if(isset($data['blocks']['pricing']) && $data['blocks']['pricing'] == '1')
         <!--Price Sec-->
         <section id="price_sec" class="price-sec sec-pad-top-sm">
             <h2 class="mb-30">pricing</h2>
@@ -751,7 +770,9 @@
             </div>
         </section>
         <!--/Price Sec-->
+        @endif
 
+        @if(isset($data['blocks']['contact']) && $data['blocks']['contact'] == '1')
         <!--Contact Sec-->
         <section id="contact_sec" class="contact-sec sec-pad-top-sm">
             <h2 class="mb-35">contact</h2>
@@ -799,6 +820,7 @@
             </div>
         </section>
         <!--/Contact Sec-->
+        @endif
 
         <!--Footer Sec-->
         <footer class="footer-sec sec-pad-top-sm sec-pad-bottom text-center">
