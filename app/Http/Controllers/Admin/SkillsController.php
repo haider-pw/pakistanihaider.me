@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\AdminController;
 use App\Skill;
+use App\Models\System\Skill as SystemSkill;
 use Illuminate\Http\Request;
 use Illuminate\Database\QueryException;
 
@@ -21,7 +22,9 @@ class SkillsController extends AdminController
     public function index()
     {
 //        flash('Hello World')->important();
-        $this->data['skills'] = Skill::all();
+        $this->data['skills'] = Skill::with('source')->get();
+        $this->data['sysSkills'] = SystemSkill::all();
+//        dd($this->data['sysSkills']);
         return view('admin.skills.list')->with('data',$this->data);
     }
 
@@ -39,21 +42,22 @@ class SkillsController extends AdminController
     public function store(Request $request)
     {
         $this->validate($request,[
-            'skill' => 'required'
+            'sys_skill' => 'required|numeric',
+            'percentage' => 'required|numeric|between:1,100'
         ]);
 
         try{
             $skill = Skill::create([
-                'name' => $request['skill'],
-                'label' => str_replace(' ','_',$request['skill'])
+                'skill_id' => $request['sys_skill'],
+                'percentage' =>$request['percentage']
             ]);
         }catch(QueryException $e){
             $error_code = $e->errorInfo[1];
             if($error_code == '1062'){
-                $errorMsg = 'Record Already exist for "'.$request['skill'].'"';
+                $errorMsg = 'Record Already exist for "'.$request['sys_skill'].'"';
                 return $this->jsonMessage('FAIL',$errorMsg);
             }
-            return $this->jsonMessage('FAIL','Could Not Add the Entry for "'.$request['skill'].'" Having the Code "'.$error_code);
+            return $this->jsonMessage('FAIL','Could Not Add the Entry for "'.$request['sys_skill'].'" Having the Code "'.$error_code);
         }
 
         if($skill){
@@ -83,8 +87,8 @@ class SkillsController extends AdminController
     public function edit(Skill $skill)
     {
         return [
-            'skill'=>$skill['name'],
-            'percentage' => $skill['percentage']
+            'skill'=>$skill->source->label,
+            'percentage' => $skill->percentage
             ];
     }
 
@@ -98,12 +102,13 @@ class SkillsController extends AdminController
     {
         $this->validate($request, [
             'skillID' => 'required|integer',
-            'skill' => 'required'
+            'sys_skill' => 'required|integer',
+            'percentage' => 'required|numeric|between:1,100'
         ]);
 
 //        Skill::updateOrInsert();
         $Skill = Skill::find($request['skillID']);
-        $Skill->name = $request['skill'];
+        $Skill->skill_id = $request['sys_skill'];
         $Skill->percentage = $request['percentage'];
         $boolResult = $Skill->save();
         if($boolResult){
@@ -122,7 +127,8 @@ class SkillsController extends AdminController
     {
         $boolResult = $skill->delete();
         if($boolResult){
-            echo 'OK::Record Successfully Deleted::success';
+            $successMsg= 'Record Successfully Deleted';
+            return $this->jsonMessage('OK',$successMsg);
         }
     }
 }

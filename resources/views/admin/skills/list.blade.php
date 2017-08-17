@@ -36,8 +36,7 @@
                             <thead>
                             <tr>
                                 <th>Id</th>
-                                <th>Skill Name</th>
-                                <th>Label</th>
+                                <th>Skill</th>
                                 <th>Percentage</th>
                                 <th>Actions</th>
                             </tr>
@@ -46,8 +45,7 @@
                             @foreach($data['skills'] as $skill)
                                 <tr data-id="{{$skill->id}}">
                                     <td>{{$skill->id}}</td>
-                                    <td>{{$skill->name}}</td>
-                                    <td>{{$skill->label}}</td>
+                                    <td>{{$skill->source->label}}</td>
                                     <td>{{$skill->percentage}}</td>
                                     <td>
                                         <a style="cursor: pointer;" data-toggle="modal" data-target="#editSkillModal"><i class="fa fa-pencil text-black fa-lg" data-toggle="tooltip" title="Edit"></i></a>
@@ -60,8 +58,8 @@
                             <tfoot>
                             <tr>
                                 <th>Id</th>
-                                <th>Skill Name</th>
-                                <th>Label</th>
+                                <th>Skill</th>
+                                <th>Percentage</th>
                                 <th>Actions</th>
                             </tr>
                             </tfoot>
@@ -91,8 +89,13 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="skillInput">Skill</label>
-                        <input class="form-control" type="text" name="skill" id="skillInput" placeholder="e-g HTML">
+                        <label for="sysSkillInput">Skill</label>
+                        <select class="form-control" name="sys_skill" id="sysSkillInput">
+                            @foreach($data['sysSkills'] as $sysSkill)
+                                <option value="{{$sysSkill->id}}">{{$sysSkill->label}}</option>
+                            @endforeach
+                        </select>
+                        {{--<input class="form-control" type="text" name="skill" id="skillInput" placeholder="e-g HTML">--}}
                     </div>
                     <div class="form-group">
                         <label for="percentageInput">Percentage</label>
@@ -124,8 +127,12 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <label for="skillInput">Skill</label>
-                            <input class="form-control" type="text" name="skill" id="skillInput" placeholder="e-g HTML">
+                            <label for="sysSkillInput">Skill</label>
+                            <select class="form-control" name="sys_skill" id="sysSkillInput">
+                                @foreach($data['sysSkills'] as $sysSkill)
+                                    <option value="{{$sysSkill->id}}">{{$sysSkill->label}}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="percentageInput">Percentage</label>
@@ -186,6 +193,9 @@
 
                 e.preventDefault(e);
 
+                //First Remove all the Previous Help Boxes that have been Added in the Form.
+                form.find('span.help-block').remove();
+
                 $.ajax({
                     type:form.attr('method'),
                     url:form.attr('action'),
@@ -194,8 +204,27 @@
                     success: function(data){
                         if(data.type){ //This means there is some Error.
                             Notification(data.box,data.message);
-                        }else if(data.label){ //This means record was successfully added.
+                        }else if(data.id){ //This means record was successfully added.
                             form.parents('.modal').modal('hide');
+                            //Refresh the Page to See the Entry.
+                            location.reload();
+                        }
+                    },
+                    error:function(message){
+                        //Check if Validation Messages Show up.
+                        if(message.responseText){
+                            try{
+                                var jsonMessage = JSON.parse(message.responseText);
+                                $.each(jsonMessage,function(key,value){
+                                    var percentageInputBox = form.find('input[name="'+key+'"]');
+                                    percentageInputBox.parents('.form-group').addClass('has-error');
+//                                    percentageInputBox.parents('.form-group').find('span.help-block').remove();
+                                    percentageInputBox.parents('.form-group').append('<span class="help-block">'+value[0]+'</span>')
+                                });
+
+                            }catch (ex){
+                                console.log(ex);
+                            }
                         }
                     }
                 });
@@ -213,7 +242,9 @@
                     type:"GET",
                     success:function (data) {
                         //Assign value to the edit skill input box
-                        modal.find('form').find('input[name="skill"]').val(data.skill);
+                        modal.find('form').find('input[name="sysSkillInput"] option').filter(function() {
+                            return ($(this).text() == data.skill); //To select Blue
+                        }).prop('selected', true);
                         modal.find('form').find('input[name="percentage"]').val(data.percentage);
                     }
                 });
@@ -235,6 +266,23 @@
                             Notification(data.box,data.message);
                             form.parents('.modal').modal('hide');
                         }
+                    },
+                    error:function(message){
+                        console.log(message.responseText);
+                        //Check if Validation Messages Show up.
+                        if(message.responseText){
+                            try{
+                                var jsonMessage = JSON.parse(message.responseText);
+                                $.each(jsonMessage,function(key,value){
+                                    var percentageInputBox = form.find('input[name="'+key+'"]');
+                                    percentageInputBox.parents('.form-group').addClass('has-error');
+                                    percentageInputBox.parents('.form-group').append('<span class="help-block">'+value[0]+'</span>')
+                                });
+
+                            }catch (ex){
+                                console.log(ex);
+                            }
+                        }
                     }
                 });
             });
@@ -249,9 +297,10 @@
                 $.ajax({
                     url:"{{url('admin/skill/edit')}}/"+skillID,
                     type:"GET",
+                    dataType:'json',
                     success:function (data) {
                         //Assign value to the edit skill input box
-                        modal.find('form').find('.modal-body p strong').text('"'+data+'"')
+                        modal.find('form').find('.modal-body p strong').text('"'+data.skill+'"')
                     }
                 });
             });
@@ -262,21 +311,24 @@
                 $.ajax({
                     url:form.attr('action')+'/'+skillID,
                     type:form.attr('method'),
-                    success:function(output){
-                        var data = output.split('::');
-                        if(data[0] == 'OK'){
+                    dataType:'json',
+                    success:function(data){
+                        if(data.type){
                             form.parents('.modal').modal('hide');
+                            if(data.type === 'OK'){
+                                //Update the Table As Well.
+                                var skillsTable = $("#skillsList");
+                                var selectedTR = skillsTable.find('tbody tr[data-id="'+skillID+'"]');
+                                selectedTR.remove();
 
-                            //Update the Table As Well.
-                            var skillsTable = $("#skillsList");
-                            var selectedTR = skillsTable.find('tbody tr[data-id="'+skillID+'"]');
-                            selectedTR.remove();
 
-                            if(skillsTable.find('tbody tr').length == 0){
-                                var html = '<tr class="odd"><td valign="top" colspan="4" class="dataTables_empty">No data available in table</td></tr>';
-                                skillsTable.find('tbody').append(html);
+                                if(skillsTable.find('tbody tr').length === 0){
+                                    var html = '<tr class="odd"><td valign="top" colspan="4" class="dataTables_empty">No data available in table</td></tr>';
+                                    skillsTable.find('tbody').append(html);
+                                }
+                                Notification(data.box,data.message);
                             }
-                        }
+                        }//End of Main If Statement.
                     }
                 })
             });
