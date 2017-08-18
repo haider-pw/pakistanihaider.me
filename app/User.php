@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','avatar',
     ];
 
     /**
@@ -40,5 +40,7 @@ class User extends Authenticatable
     {
         return $this->hasOne(Resume::class);
     }
+
+
 
 }
