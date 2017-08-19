@@ -101,7 +101,7 @@ class ResumeController extends AdminController
         $file = $request->file('cv_path');
         if(!empty($file)){
             $extension = $file->extension();
-            $path = $file->storeAs('public/resumes/'.$userID,'cv.'.$extension);
+            $path = $file->storeAs('resumes/'.$userID,'cv.'.$extension,'public');
         }
 
 
@@ -118,9 +118,15 @@ class ResumeController extends AdminController
             $resume->cv_path = $path;
         }
         $boolUser = $user->save();
+        if(!$boolUser){
+            return $this->jsonMessage('OK','Could not update the details for the User');
+        }
         $boolResume = $resume->save();
+        if(!$boolResume){
+            return $this->jsonMessage('OK','Could not update the details for the Resume');
+        }
 
-        if($boolUser || $boolResume){
+        if($boolUser && $boolResume){
             return $this->jsonMessage('OK','Record Successfully Updated.');
         }else{
             return $this->jsonMessage('FAIL','Something went Wrong, Could Not Update the Record, Please Contact System Administrator for Further Assistance.');

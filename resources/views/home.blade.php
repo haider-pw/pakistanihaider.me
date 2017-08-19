@@ -60,7 +60,7 @@
                                     <h1>{{!empty($data['activeResume']->user->name)?$data['activeResume']->user->name:'Your Name'}}</h1>
                                     <h5 class="mt-20 font-grey">{{!empty($data['activeResume']->position)?$data['activeResume']->position:'Your Name'}}</h5>
                                     <div class="mt-30">
-                                        <a id="download_cv" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect  bg-green font-white mr-10" href="#">download cv</a>
+                                        <a id="download_cv" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect  bg-green font-white mr-10" href="{{route('downloadResume')}}">download cv</a>
                                         <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect bg-blue font-white" href="#contact_sec" data-scroll>contact</a>
                                     </div>
                                 </div>

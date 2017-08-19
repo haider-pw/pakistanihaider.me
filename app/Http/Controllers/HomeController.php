@@ -25,4 +25,10 @@ class HomeController extends Controller
         }
         return view('home')->with('data',$this->data);
     }
+
+
+    public function download(){
+        $activeResume = Resume::where('active',1)->first();
+        return response()->download(storage_path('app/public/'.$activeResume->cv_path));
+    }
 }

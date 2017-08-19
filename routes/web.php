@@ -18,6 +18,7 @@
 
 Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index');
+Route::get('/resume/download', 'HomeController@download')->name('downloadResume');
 Auth::routes();
 
 Route::group(['namespace' => 'Admin','prefix' => 'admin', 'middleware'=>'auth'], function () {
