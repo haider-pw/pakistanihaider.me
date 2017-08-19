@@ -82,18 +82,28 @@ class ResumeController extends AdminController
         if(!$request){
             return false;
         }
-        $userID = $request->get('userID');
-        $user = User::find($userID);
 
-        //Need To Validate the Records.
+        //Need To Validate the Request First.
         $this->validate($request,[
             'name' => 'required',
+            'position' => 'required',
+            'cv_path' => 'mimes:doc,docx,text,txt',
             'email' => 'required'
         ]);
 
+        $userID = $request->get('userID');
+        //Find the User.
+        $user = User::find($userID);
         if(empty($user)){
             return false;
         }
+
+        $file = $request->file('cv_path');
+        if(!empty($file)){
+            $extension = $file->extension();
+            $path = $file->storeAs('public/resumes/'.$userID,'cv.'.$extension);
+        }
+
 
 
         $user->name = $request['name'];
@@ -104,10 +114,16 @@ class ResumeController extends AdminController
         $resume = Resume::find($user->id);
         $resume->position = $request['position'];
         $resume->available = $request['freelance'];
+        if(isset($path)){
+            $resume->cv_path = $path;
+        }
+        $boolUser = $user->save();
+        $boolResume = $resume->save();
 
-        $user->save();
-        $resume->save();
-
-        return $request['name'];
+        if($boolUser || $boolResume){
+            return $this->jsonMessage('OK','Record Successfully Updated.');
+        }else{
+            return $this->jsonMessage('FAIL','Something went Wrong, Could Not Update the Record, Please Contact System Administrator for Further Assistance.');
+        }
     }
 }

@@ -21,7 +21,7 @@
                         <div class="box-header">
                             <h3 class="box-title">Add Project Details</h3>
                             <div class="add-New-container pull-right">
-                                <a href="http://esicdirectory.tk/esic/admin/Esic/view/2" class="btn btn-sm btn-primary">Back</a>
+                                <a href="{{URL::previous()}}" class="btn btn-sm btn-primary">Back</a>
                                 <a href="{{URL('admin/portfolio')}}" class="btn btn-sm btn-primary">Listing</a>
                             </div>
                         </div>

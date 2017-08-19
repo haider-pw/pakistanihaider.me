@@ -8,6 +8,8 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.6 -->
     <link rel="stylesheet" href="{{url('assets/admin/bootstrap/css/bootstrap.min.css')}}">
+    <!-- Bootstrap 3.3.6 -->
+    <link rel="stylesheet" href="{{url('assets/admin/plugins/jasny-bootstrap/css/jasny-bootstrap.min.css')}}">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
     <!-- Ionicons -->
@@ -287,6 +289,8 @@
 </script>
 <!-- Bootstrap 3.3.6 -->
 <script src="{{url('assets/admin/bootstrap/js/bootstrap.min.js')}}"></script>
+<!-- Jasny Bootstrap -->
+<script src="{{url('assets/admin/plugins/jasny-bootstrap/js/jasny-bootstrap.min.js')}}"></script>
 <!-- Morris.js charts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
 <script src="{{url('assets/admin/plugins/morris/morris.min.js')}}"></script>
@@ -317,11 +321,14 @@
 <script type="text/javascript">
     $(function(){
         $('div.alert').not('.alert-important').delay(3000).fadeOut(350);
+        $('body').on('click','.alert-dismissable',function(){
+           $(this).remove();
+        });
     });
 
     //Custom Scripting.
     function Notification(level,Message){
-        var html = '<div class="col-sm-6 col-md-4 col-xs-12 alert alert-'+level+'" role="alert">';
+        var html = '<div class="col-sm-6 col-md-4 col-xs-12 alert alert-'+level+' alert-dismissable" role="alert">';
         html+= Message;
         html+= '</div>';
         $('section.notifications').html(html);

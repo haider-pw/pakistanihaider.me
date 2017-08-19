@@ -18,12 +18,12 @@
     </section>
     <section class="content">
     <div class="box box-default">
-        <form id="basicsInformationForm" action="{{url('admin/resume/basics/update')}}" method="POST">
+        <form id="basicsInformationForm" action="{{url('admin/resume/basics/update')}}" method="POST" enctype="multipart/form-data">
             {{csrf_field()}}
             <input type="hidden" name="userID" value="{{$data['basics']->id}}">
         <div class="box-header with-border">
             <h3 class="box-title">Resume Basics Information</h3>
-            <span><button  type="button" class="btn btn-success pull-right" id="updateBasicsInformationBtn">Update</button></span>
+            <span><button  type="submit" class="btn btn-success pull-right" id="updateBasicsInformationBtn">Update</button></span>
         </div>
         <!-- /.box-header -->
         <div class="box-body">
@@ -44,6 +44,14 @@
                             <option value="1" selected="selected">Available</option>
                             <option value="2">Not Available</option>
                         </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Upload CV/Resume</label>
+                        <div class="fileinput fileinput-new input-group" data-provides="fileinput">
+                            <div class="form-control" data-trigger="fileinput"><i class="glyphicon glyphicon-file fileinput-exists"></i> <span class="fileinput-filename"></span></div>
+                            <span class="input-group-addon btn btn-default btn-file"><span class="fileinput-new">Select file</span><span class="fileinput-exists">Change</span><input type="file" name="cv_path"></span>
+                            <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+                        </div>
                     </div>
                     <!-- /.form-group -->
                 </div>
@@ -86,16 +94,25 @@
 @section('scripts')
     <script type="text/javascript">
         $(function () {
-            $('#updateBasicsInformationBtn').on('click',function(e){
+            $('#basicsInformationForm').on('submit',function(e){
                 e.preventDefault();
+                var formData = new FormData(this);
                 $.ajax({
-                    url:$(this).parents('form').attr('action'),
-                    type:$(this).parents('form').attr('method'),
-                    data: $(this).parents('form').serializeArray(),
-                    success:function(output){
-                        console.log(output);
-                    }
+                    url:$(this).attr('action'),
+                    type:$(this).attr('method'),
+                    data: formData,
+                    dataType:'json',
+                    async:false,
+                    success:function(data){
+                        if(data.type){
+                            Notification(data.box,data.message)
+                        }
+                    },
+                    cache: false,
+                    contentType: false,
+                    processData: false
                 });
+                return false;
             });
 
 
