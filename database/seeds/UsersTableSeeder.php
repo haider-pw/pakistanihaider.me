@@ -17,7 +17,7 @@ class UsersTableSeeder extends Seeder
             'name' => 'Syed Haider Hassan',
             'username' => 'haideritx',
             'email' => 'haideritx@gmail.com',
-            'logo' => 'user1-128x128.jpg',
+            'avatar' => 'user1-128x128.jpg',
             'hasResume' => 1,
             'password' => bcrypt('secret'),
             'phone' => '+92 334 8123456',

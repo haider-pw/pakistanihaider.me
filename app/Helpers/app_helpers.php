@@ -1,16 +1,26 @@
 <?php
 if(!function_exists('percentageColor')){
-    function percentageColor($percentage){
+    function percentageColor($percentage,$progressBar=false){
         if(empty($percentage))
             return '000000';
 
-        $colors = [
-            'excellent' => '#01660b',
-            'veryGood' => '#01c853',
-            'good'=> '#2879ff',
-            'average'=> '#fec107',
-            'starter'=> '#ff3d00'
-        ];
+        if($progressBar){
+            $colors = [
+                'excellent' => 'green-bar',
+                'veryGood' => 'green-bar',
+                'good'=> 'blue-bar',
+                'average'=> 'yellow-bar',
+                'starter'=> 'red-bar'
+            ];
+        }else{
+            $colors = [
+                'excellent' => '#01660b',
+                'veryGood' => '#01c853',
+                'good'=> '#2879ff',
+                'average'=> '#fec107',
+                'starter'=> '#ff3d00'
+            ];
+        }
 
         if($percentage>=0 && $percentage<30){
             return $colors['starter'];

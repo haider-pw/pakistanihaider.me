@@ -108,106 +108,27 @@
         <!--Skills Sec-->
         <section id="skills_sec" class="skills-sec sec-pad-top-sm">
             <div class="row">
-                <div class="col-sm-6 mb-30">
-                    <h2 class="mb-30">technical skills</h2>
-                    <div class="mdl-card mdl-shadow--2dp">
-                        <div class="mb-30">
-                            <span class="progress-cat">PHP Development</span>
-                            <div class="progress-bar-graph">
-                                <div class="progress-bar-wrap">
-                                    <div class="bar-wrap green-bar">
-                                        <span data-width="94"></span>
+                @foreach($data['skillGroups'] as $skillGroup)
+                    <div class="col-sm-6 mb-30">
+                        <h2 class="mb-30">{{$skillGroup->label}}</h2>
+                        <div class="mdl-card mdl-shadow--2dp">
+                            @foreach($data['activeResume']->user->skills as $skill)
+                                @if($skillGroup->id === $skill->source->skill_group_id)
+                                    <div class="mb-30">
+                                        <span class="progress-cat">{{$skill->source->label}}</span>
+                                        <div class="progress-bar-graph">
+                                            <div class="progress-bar-wrap">
+                                                <div class="bar-wrap {{percentageColor($skill->percentage,true)}}">
+                                                    <span data-width="{{$skill->percentage}}"></span>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mb-30">
-                            <span class="progress-cat">RDBMS</span>
-                            <div class="progress-bar-graph">
-                                <div class="progress-bar-wrap">
-                                    <div class="bar-wrap green-bar">
-                                        <span data-width="90"></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mb-30">
-                            <span class="progress-cat">OOP</span>
-                            <div class="progress-bar-graph">
-                                <div class="progress-bar-wrap">
-                                    <div class="bar-wrap green-bar">
-                                        <span data-width="94"></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mb-30">
-                            <span class="progress-cat">MVC</span>
-                            <div class="progress-bar-graph">
-                                <div class="progress-bar-wrap">
-                                    <div class="bar-wrap green-bar">
-                                        <span data-width="94"></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mb-30">
-                            <span class="progress-cat">Javascript</span>
-                            <div class="progress-bar-graph">
-                                <div class="progress-bar-wrap">
-                                    <div class="bar-wrap yellow-bar">
-                                        <span data-width="70"></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mb-30">
-                            <span class="progress-cat">Version Control (git/svn)</span>
-                            <div class="progress-bar-graph">
-                                <div class="progress-bar-wrap">
-                                    <div class="bar-wrap blue-bar">
-                                        <span data-width="75"></span>
-                                    </div>
-                                </div>
-                            </div>
+                                @endif
+                            @endforeach
                         </div>
                     </div>
-                </div>
-                <div class="col-sm-6 mb-30">
-                    <h2 class="mb-30">soft skills</h2>
-                    <div class="mdl-card mdl-shadow--2dp">
-                        <div class="mb-30">
-                            <span class="progress-cat">Communication</span>
-                            <div class="progress-bar-graph">
-                                <div class="progress-bar-wrap">
-                                    <div class="bar-wrap blue-bar">
-                                        <span data-width="80"></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mb-30">
-                            <span class="progress-cat">Language</span>
-                            <div class="progress-bar-graph">
-                                <div class="progress-bar-wrap">
-                                    <div class="bar-wrap green-bar">
-                                        <span data-width="95"></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mb-30">
-                            <span class="progress-cat">General Knowledge</span>
-                            <div class="progress-bar-graph">
-                                <div class="progress-bar-wrap">
-                                    <div class="bar-wrap yellow-bar">
-                                        <span data-width="90"></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </section>
         <!--/Skills Sec-->

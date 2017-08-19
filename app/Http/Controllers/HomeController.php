@@ -2,14 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\System\SkillsGroup;
 use App\Resume;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
 
+    protected $data;
     /**
-     * Show the application dashboard.
+     * Show the Resume Home Page..
      */
     public function index()
     {
@@ -18,7 +20,9 @@ class HomeController extends Controller
             $this->data['blocks'] = collect($this->data['activeResume']->blocks)->pluck('value','key')->toArray();
         }
 
-//        return $this->data['activeResume'];
+        if(isset($this->data['blocks']['skills_boxes']) && $this->data['blocks']['skills_boxes'] == '1'){
+            $this->data['skillGroups'] = SkillsGroup::limit(2)->get();
+        }
         return view('home')->with('data',$this->data);
     }
 }

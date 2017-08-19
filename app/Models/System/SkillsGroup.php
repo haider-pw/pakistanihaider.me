@@ -11,4 +11,8 @@ class SkillsGroup extends Model
 
     protected $table = 'skills_groups';
     protected $dates = ['deleted_at'];
+
+    public function sysSkills(){
+        $this->hasMany(Skill::class);
+    }
 }
