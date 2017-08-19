@@ -1,24 +1,32 @@
 <?php
 if(!function_exists('percentageColor')){
-    function percentageColor($percentage,$progressBar=false){
+    function percentageColor($percentage,$type='progressbar'){
         if(empty($percentage))
             return '000000';
 
-        if($progressBar){
+        if ($type || $type == 'progressBar') {
             $colors = [
                 'excellent' => 'green-bar',
                 'veryGood' => 'green-bar',
-                'good'=> 'blue-bar',
-                'average'=> 'yellow-bar',
-                'starter'=> 'red-bar'
+                'good' => 'blue-bar',
+                'average' => 'yellow-bar',
+                'starter' => 'red-bar'
             ];
-        }else{
+        } elseif ($type === 'label') {
+            $colors = [
+                'excellent' => 'success',
+                'veryGood' => 'success',
+                'good' => 'primary',
+                'average' => 'warning',
+                'starter' => '#danger'
+            ];
+        } else {
             $colors = [
                 'excellent' => '#01660b',
                 'veryGood' => '#01c853',
-                'good'=> '#2879ff',
-                'average'=> '#fec107',
-                'starter'=> '#ff3d00'
+                'good' => '#2879ff',
+                'average' => '#fec107',
+                'starter' => '#ff3d00'
             ];
         }
 

@@ -17,11 +17,9 @@
     <section class="content">
         <div class="row">
             <div class="col-md-2 pull-right">
-                <button type="button"
-                        class="btn btn-block btn-primary btn-success" data-toggle="modal" data-target="#addSkillModal">Add Skill</button>
+                <a href="{{route('addProject')}}" class="btn btn-block btn-primary btn-success">Add Project</a>
             </div>
-            <br/>
-            <br/>
+
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-header">
