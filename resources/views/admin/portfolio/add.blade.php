@@ -38,12 +38,11 @@
                                         </div>
                                         <div class="form-group col-lg-6">
                                             <label for="projectType">Project Type</label>
-                                            <select name="type" id="projectType">
-                                                @foreach($data['types'] as $type)
+                                            <select name="type" id="projectType" class="form-control">
+                                                @foreach($types as $type)
                                                     <option value="{{$type->id}}">{{$type->label}}</option>
                                                 @endforeach
                                             </select>
-                                            <input type="text" name="type" id="projectType" class="form-control">
                                         </div>
                                     </div>
 

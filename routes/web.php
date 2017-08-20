@@ -42,7 +42,7 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin', 'middleware'=>'auth'],
     Route::post('/resume/basics/live-update','ResumeController@basicConfigUpdate');
 
     Route::group(['namespace'=>'Resume'],function(){
-        Route::get('/portfolio','PortfolioController@show');
+        Route::get('/portfolio','PortfolioController@show')->name('portfolio');
         Route::get('/project/add','ProjectController@create')->name('addProject');
         Route::post('/project/add','ProjectController@store')->name('addProject');
     });

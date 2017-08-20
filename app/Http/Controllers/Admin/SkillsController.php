@@ -63,7 +63,7 @@ class SkillsController extends AdminController
         if($skill){
             return $skill;
         }else{
-            return 'FAIL::Could not add record to the database::error';
+            return $this->jsonMessage('FAIL','Could not add record to the database');
         }
     }
 
