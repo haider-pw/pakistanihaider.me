@@ -25,6 +25,8 @@ class ProjectController extends AdminController
             'company' => 'required'
         ]);
 
+
+
         //First we need to check if Portfolio has the Type Class
         $portfolio = Portfolio::where('portfolio_type_id',$request['type'])->first();
 
@@ -48,14 +50,20 @@ class ProjectController extends AdminController
         $Project->title = $request['title'];
         $Project->website = $request['website'];
         $Project->company = $request['company'];
-        $Project->tools = $request['tools'];
+//        $Project->tools = $request['tools'];
         $Project->description = $request['description'];
-
         $resultProject = $Project->save();
+
+        //Now if Project has been assigned some Tools, Than just add the tools to this related project.
+        if(!empty($request['tools'])){
+            $Project->tools()->sync($request['tools']);
+        }
+
         if(!$resultProject){
             flash('Failed to add project to DB')->error();
             return false;
         }
+
         flash('Project Successfully Added')->success();
         return redirect()->to(route('portfolio'));
     }

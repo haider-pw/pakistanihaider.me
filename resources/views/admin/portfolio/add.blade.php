@@ -61,7 +61,6 @@
                                         <div class="form-group col-lg-6">
                                             <label for="projectTools">Tools Used to Build this Project</label>
                                             <select name="tools[]" id="projectTools" class="form-control select2-multiple" multiple="multiple">
-                                                <option value="1">Hello</option>
                                             </select>
                                         </div>
                                         <div class="form-group col-lg-6">

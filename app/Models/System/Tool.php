@@ -9,6 +9,7 @@ use Sofa\Eloquence\Eloquence;
 class Tool extends Model
 {
     use Eloquence;
+    protected $table = 'tools';
     protected $searchableColumns = ['name', 'label'];
     protected $fillable = ['name', 'label'];
 

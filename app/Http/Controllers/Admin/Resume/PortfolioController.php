@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class PortfolioController extends AdminController
 {
     public function show(){
-        $this->data['portfolio'] = Project::with('portfolio')->get();
+        $this->data['portfolio'] = Project::with('portfolio','tools')->get();
         return view('admin.portfolio.list')->with('data',$this->data);
     }
 }

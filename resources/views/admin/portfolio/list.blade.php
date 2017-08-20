@@ -47,7 +47,13 @@
                                     <td>{{$project->title}}</td>
                                     <td>{{$project->cover_image}}</td>
                                     <td>{{$project->website}}</td>
-                                    <td>{{$project->tools}}</td>
+                                    <td>
+                                        @if(!empty($project->tools))
+                                            @foreach($project->tools as $tool)
+                                                <small class="label bg-green">{{$tool->label}}</small>
+                                            @endforeach
+                                        @endif
+                                    </td>
                                     <td>
                                         <a style="cursor: pointer;" data-toggle="modal" data-target="#editSkillModal"><i class="fa fa-pencil text-black fa-lg" data-toggle="tooltip" title="Edit"></i></a>
                                         &nbsp;
