@@ -2,6 +2,7 @@
 
 namespace App\Models\Resume;
 
+use App\Models\System\Tool;
 use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
@@ -15,6 +16,6 @@ class Project extends Model
     }
 
     public function tools(){
-//        return $this->belongsToMany()
+        return $this->belongsToMany(Tool::class);
     }
 }
