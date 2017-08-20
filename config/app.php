@@ -176,7 +176,10 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+
+        //Custom Updated Service Providers
         Laracasts\Flash\FlashServiceProvider::class,
+        Sofa\Eloquence\ServiceProvider::class
     ],
 
     /*

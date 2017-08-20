@@ -1,5 +1,6 @@
 {
   "/mix.js": "/mix.js",
   "/assets/css/style.css": "/assets/css/style.css",
-  "/assets/css/all.css": "/assets/css/all.css"
+  "/assets/css/all.css": "/assets/css/all.css",
+  "/assets/js/app.js": "/assets/js/app.js"
 }

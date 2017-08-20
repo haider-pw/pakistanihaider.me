@@ -52,6 +52,7 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin', 'middleware'=>'auth'],
         Route::get('/systemSkills', 'SkillsController@show')->name('sysSkills');
         Route::get('/systemSkillsGroups', 'SkillsGroupsController@show')->name('sysSkillsGroups');
         Route::get('/systemConfiguration', 'ConfigurationController@show')->name('sysConfiguration');
+        Route::get('/tools/find', 'ToolsController@find')->name('findTools');
     });
 });
 

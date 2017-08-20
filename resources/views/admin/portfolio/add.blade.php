@@ -59,8 +59,10 @@
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-lg-6">
-                                            <label for="address_street_number">Tools Used to Build this Project</label>
-                                            <input type="text" name="address_street_number" id="address_street_number" value="56" class="form-control">
+                                            <label for="projectTools">Tools Used to Build this Project</label>
+                                            <select name="tools[]" id="projectTools" class="form-control select2-multiple" multiple="multiple">
+                                                <option value="1">Hello</option>
+                                            </select>
                                         </div>
                                         <div class="form-group col-lg-6">
                                             <label for="address_street_number">Cover Image</label>
@@ -92,4 +94,19 @@
         </div>
         <!-- /.row -->
     </section>
+@endsection
+@section('scripts')
+    <script type="text/javascript">
+        $(function(){
+            let params = {
+                placeholder: 'Select Tools',
+                selector : '#projectTools',
+                minInputLength: 1,
+                url: '{{route('findTools')}}',
+            };
+            //Initialize the Select2
+//            $('#projectTools').select2();
+            select2_ajax(params);
+        });
+    </script>
 @endsection

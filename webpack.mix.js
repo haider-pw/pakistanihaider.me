@@ -27,6 +27,8 @@ mix.combine([
 
 //copy javascript files to public
 mix.copy('resources/assets/js/', 'public/assets/js/');
+//To go Specific
+mix.js('resources/assets/js/app.js', 'public/assets/js/');
 
 //copy img directory files to public img directory - this might be temporarily needed.
 mix.copy('resources/assets/img/', 'public/assets/img/');

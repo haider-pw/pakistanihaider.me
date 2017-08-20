@@ -314,6 +314,8 @@
 <script src="{{url('assets/admin/plugins/fastclick/fastclick.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{url('assets/admin/js/app.min.js')}}"></script>
+{{--GlobalAppFile--}}
+<script src="{{url('assets/js/app.js')}}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 {{--<script src="{{url('assets/admin/js/pages/dashboard.js')}}"></script>--}}
 <!-- AdminLTE for demo purposes -->
