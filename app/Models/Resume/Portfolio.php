@@ -10,7 +10,7 @@ class Portfolio extends Model
     protected $table = 'portfolio';
 
 
-    public function types(){
+    public function type(){
         return $this->belongsTo(PortfolioType::class,'portfolio_type_id','id');
     }
 

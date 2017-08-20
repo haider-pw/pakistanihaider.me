@@ -13,4 +13,8 @@ class Project extends Model
     public function portfolio(){
         return $this->belongsTo(Portfolio::class,'portfolio_id','id');
     }
+
+    public function tools(){
+//        return $this->belongsToMany()
+    }
 }

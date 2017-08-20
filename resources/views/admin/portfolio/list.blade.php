@@ -31,21 +31,23 @@
                             <thead>
                             <tr>
                                 <th>Id</th>
-                                <th>Cover Image</th>
+                                <th>Type</th>
                                 <th>Title</th>
+                                <th>Cover Image</th>
                                 <th>Website</th>
                                 <th>Tools</th>
                                 <th>Actions</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($data['portfolio'] as $portfolio)
-                                <tr data-id="{{$portfolio->id}}">
-                                    <td>{{$portfolio->id}}</td>
-                                    <td>{{$portfolio->cover_image}}</td>
-                                    <td>{{$portfolio->name}}</td>
-                                    <td>{{$portfolio->title}}</td>
-                                    <td>{{$portfolio->website}}</td>
+                            @foreach($data['portfolio'] as $project)
+                                <tr data-id="{{$project->id}}">
+                                    <td>{{$project->id}}</td>
+                                    <td>{{$project->portfolio->type->label}}</td>
+                                    <td>{{$project->title}}</td>
+                                    <td>{{$project->cover_image}}</td>
+                                    <td>{{$project->website}}</td>
+                                    <td>{{$project->tools}}</td>
                                     <td>
                                         <a style="cursor: pointer;" data-toggle="modal" data-target="#editSkillModal"><i class="fa fa-pencil text-black fa-lg" data-toggle="tooltip" title="Edit"></i></a>
                                         &nbsp;
@@ -57,6 +59,7 @@
                             <tfoot>
                             <tr>
                                 <th>Id</th>
+                                <th>Type</th>
                                 <th>Cover Image</th>
                                 <th>Title</th>
                                 <th>Website</th>
