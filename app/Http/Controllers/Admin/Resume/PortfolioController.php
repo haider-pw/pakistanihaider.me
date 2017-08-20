@@ -12,8 +12,4 @@ class PortfolioController extends AdminController
         $this->data['portfolio'] = Portfolio::all();
         return view('admin.portfolio.list')->with('data',$this->data);
     }
-
-    public function create(){
-        return view('admin.portfolio.add');
-    }
 }

@@ -43,7 +43,8 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin', 'middleware'=>'auth'],
 
     Route::group(['namespace'=>'Resume'],function(){
         Route::get('/portfolio','PortfolioController@show');
-        Route::get('/portfolio/add','PortfolioController@create')->name('addProject');
+        Route::get('/project/add','ProjectController@create')->name('addProject');
+        Route::post('/project/add','ProjectController@store')->name('addProject');
     });
 
     //For System Configurations

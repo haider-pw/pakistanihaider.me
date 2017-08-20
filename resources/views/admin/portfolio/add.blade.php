@@ -16,7 +16,8 @@
     <section class="content">
         <div class="row">
             <div class="col-md-12">
-                <form action="http://esicdirectory.tk/esic/Esic/EditSave" method="post" class="form" enctype="multipart/form-data">
+                <form action="{{route('addProject')}}" method="post" class="form" enctype="multipart/form-data">
+                    {{csrf_field()}}
                     <div class="box">
                         <div class="box-header">
                             <h3 class="box-title">Add Project Details</h3>
@@ -30,9 +31,20 @@
                             <div class="row">
                                 <input type="hidden" id="hiddenListID" value="">
                                 <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label for="projectTitle">Project Title</label>
-                                        <input type="text" name="title" id="projectTitle" class="form-control">
+                                    <div class="row">
+                                        <div class="form-group col-lg-6">
+                                            <label for="projectTitle">Project Title</label>
+                                            <input type="text" name="title" id="projectTitle" class="form-control">
+                                        </div>
+                                        <div class="form-group col-lg-6">
+                                            <label for="projectType">Project Type</label>
+                                            <select name="type" id="projectType">
+                                                @foreach($data['types'] as $type)
+                                                    <option value="{{$type->id}}">{{$type->label}}</option>
+                                                @endforeach
+                                            </select>
+                                            <input type="text" name="type" id="projectType" class="form-control">
+                                        </div>
                                     </div>
 
                                     <div class="row">
@@ -59,7 +71,7 @@
 
                                     <div class="form-group">
                                         <label for="projectDescription">Description</label>
-                                        <input type="text" name="description" id="projectDescription" class="form-control">
+                                        <textarea name="description" id="projectDescription" class="form-control"></textarea>
                                     </div>
                                     <div class="form-group">
                                         <label for="KeywordsBox">Keywords</label>
