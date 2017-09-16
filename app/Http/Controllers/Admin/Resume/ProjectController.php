@@ -67,4 +67,17 @@ class ProjectController extends AdminController
         flash('Project Successfully Added')->success();
         return redirect()->to(route('portfolio'));
     }
+
+
+    public function delete(Project $project){
+        $boolResult = $project->delete();
+        if($boolResult){
+            $successMsg= 'Record Successfully Deleted';
+            flash($successMsg)->success();
+        }else{
+            $successMsg= 'Record Could Not Be Deleted';
+            flash($successMsg)->error();
+        }
+        return redirect()->to(route('portfolio'));
+    }
 }

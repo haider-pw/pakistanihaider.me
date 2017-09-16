@@ -57,7 +57,7 @@
                                     <td>
                                         <a style="cursor: pointer;" data-toggle="modal" data-target="#editSkillModal"><i class="fa fa-pencil text-black fa-lg" data-toggle="tooltip" title="Edit"></i></a>
                                         &nbsp;
-                                        <a style="cursor: pointer;" data-toggle="modal" data-target="#deleteSkillModal"><i class="fa fa-trash text-red fa-lg" data-toggle="tooltip" title="Delete"></i></a>
+                                        <a href="{{route('deleteProject',[$project->id])}}" style="cursor: pointer;"><i class="fa fa-trash text-red fa-lg" data-toggle="tooltip" title="Delete"></i></a>
                                     </td>
                                 </tr>
                             @endforeach

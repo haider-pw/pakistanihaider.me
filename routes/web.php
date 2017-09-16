@@ -45,6 +45,7 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin', 'middleware'=>'auth'],
         Route::get('/portfolio','PortfolioController@show')->name('portfolio');
         Route::get('/project/add','ProjectController@create')->name('addProject');
         Route::post('/project/add','ProjectController@store')->name('addProject');
+        Route::get('/project/{project}/delete','ProjectController@delete')->name('deleteProject');
     });
 
     //For System Configurations
